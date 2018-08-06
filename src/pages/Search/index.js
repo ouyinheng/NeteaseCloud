@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './index.scss'
-import axios from 'axios';
+import { toSearch,getHot } from '../../request/search.request.js'
 class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue:''
+            inputValue:'',
+            hotData:''
         }
         this.goBack = this.goBack.bind(this);
         this.getChange = this.getChange.bind(this);
@@ -28,12 +29,33 @@ class Search extends Component {
     }
     submit(e){
         e.preventDefault();
-        axios.get(`http://192.168.100.1:3001/search?keywords=${this.state.inputValue}`).then(res=>{
+        var item =  this.state.inputValue
+        toSearch(item).then(res=>{
             console.log(res)
         }).catch(err=>{
             console.log(err)
         })
         console.log('submit')
+    }
+    setSearch(item){
+        this.setState({
+            inputValue: item
+        })
+        toSearch(item).then(res=>{
+            console.log(res)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+    componentDidMount  (){
+        getHot().then(res=>{
+            console.log(res)
+            this.setState({
+                hotData: res.result.hots
+            })
+        }).catch(err=>{
+            console.log('err',err)
+        })
     }
     render() {
         // const { classes } = this.props;
@@ -58,6 +80,13 @@ class Search extends Component {
                     </div>
                     <div className="hotSearch">
                         <span className="tips">热门搜索</span>
+                        <div className="items">
+                            {
+                                this.state.hotData.map((item,index)=>{
+                                    return (<span key={index} onClick={this.setSearch.bind(this,item.first)}>{item.first}</span>)
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             )
