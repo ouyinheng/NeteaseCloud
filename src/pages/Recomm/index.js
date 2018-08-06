@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import './index.scss'
 class Recomm extends Component {
     render() {
         return (
-            <div>Recomm</div>
+                <div className="Recomm">
+                        推荐
+                </div>
         )
     }
 }

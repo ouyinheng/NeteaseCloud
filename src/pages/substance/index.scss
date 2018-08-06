@@ -1,0 +1,17 @@
+.substance {
+    width: 100%;
+    height: 50px;
+    background: #C20C0C;
+    .nav {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        a {
+            display: block;
+            padding: 0;
+            margin: 0;
+            border-bottom: 2px solid white;
+        }
+    }
+}
