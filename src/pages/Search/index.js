@@ -49,6 +49,16 @@ class Search extends Component {
                             }
                         </div>
                     </form>
+                    <div className="Singer-classification">
+                        <div className="Singer-center">
+                            <span className="iconfont icon-team"></span>
+                            <span>歌手分类</span>
+                            <span className="iconfont icon-right"></span>
+                        </div>
+                    </div>
+                    <div className="hotSearch">
+                        <span className="tips">热门搜索</span>
+                    </div>
                 </div>
             )
         } else {
