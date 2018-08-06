@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
         <Router>
-          <div className="App">
+          <div className="App" style={{background:'#C20C0C'}}>
             <header className="nav">
                 <div className="left">
                   <span className="iconfont icon-view-list-o"></span>
