@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import './index.scss';
 
 class Footer extends Component {
-    render() {
-        return (
-            <div>
-                Footer
-            </div>
-        )
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+    // this.toSearch = this.toSearch.bind(this)
+  }
+
+  render() {
+    return (
+        <div>
+            this is footer
+        </div>
+    );
+  }
 }
-export default Footer
+
+export default Footer;

@@ -1,7 +1,7 @@
 a { text-decoration:none;color:white; } 
 a:hover { text-decoration:underline; } 
 html {overflow-y:scroll;} 
-body {margin:0; padding:0; font:16px"\5B8B\4F53",sans-serif;background:#ffffff;} 
+body {margin:0; padding:0; font:16px"\5B8B\4F53",sans-serif;background:#ffffff;font-family: 微软雅黑;} 
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;} 
 table,td,tr,th{font-size:12px;} 
 li{list-style-type:none;} 
