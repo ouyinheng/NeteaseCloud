@@ -1,5 +1,5 @@
 a { text-decoration:none;color:white; } 
-a:hover { text-decoration:underline; } 
+a:hover { text-decoration:none; } 
 html {overflow-y:scroll;} 
 body {margin:0; padding:0; font:16px"\5B8B\4F53",sans-serif;background:#ffffff;font-family: 微软雅黑;} 
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;} 
@@ -9,3 +9,27 @@ img{vertical-align:top;border:0;}
 ol,ul {list-style:none;} 
 h1,h2,h3,h4,h5,h6{font-size:12px; font-weight:normal;} 
 address,cite,code,em,th {font-weight:normal; font-style:normal;}
+
+.border-1{
+    position: relative;         
+}
+
+.border-1:before{
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      border-bottom: 1px solid gainsboro;
+      -webkit-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -o-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: scale(0.5, 0.5);
+      -ms-transform: scale(0.5, 0.5);
+      -o-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5);
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}

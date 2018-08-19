@@ -29,7 +29,7 @@ export default {
      * @param wait 延迟执行毫秒数
      * @param immediate true 表立即执行，false 表非立即执行
      */
-    debounce(func,wait,immediate) {
+    debounce(func,wait=1000,immediate=true) {
         var timeout;
 
         return function () {

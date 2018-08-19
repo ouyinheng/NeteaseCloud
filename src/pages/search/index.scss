@@ -1,0 +1,97 @@
+.Search {
+    .search-header {
+        width: 100%;
+        height:60px;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: RGB(230,72,60);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        span {
+            display: block;
+            font-size: 25px;
+            color: white;
+        }
+        input {
+            width: 90%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid RGB(249,121,111);
+            transition: all .5s;
+            background-color: RGB(230,72,60);
+            color: white;
+            font-size: 16px;
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid gainsboro;
+                // color: #52616c;
+                // -webkit-transform: translate(10px) scale(0.9);
+                // transform: translate(10px) scale(0.9);
+            }
+            &::-webkit-input-placeholder {
+               color: gainsboro;
+               font-size: 16px;
+            }
+        }
+    }
+    .search-section {
+        width: 100%;
+        .classify {
+            width: 100%;
+            height:25px;
+            padding: 10px 0;
+            display: flex;
+            .center {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            span {
+                font-size: 20px;
+                margin: 0 5px;
+                color: gray;
+            }
+        }
+        .search-hot {
+            padding: 20px 10px;
+            color:  RGB(132,133,135);
+            .hot-title {
+                margin-bottom: 10px;
+            }
+            .tips {
+                display: flex;
+                flex-wrap: wrap;
+                .hot-tips {
+                    display: block;
+                    border: 1px solid RGB(227,228,230);
+                    border-radius: 15px;
+                    padding: 3px 10px;
+                    margin: 0 10px 10px 0 ;
+                }
+            }
+        }
+        .localHistory-group {
+            box-sizing: border-box;
+            padding: 0 10px;
+            .localHistory-item {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .local-left {
+                    width: 90%;
+                    height: 50px;
+                    line-height: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .font-gray {
+                    color: gray;
+                }
+            }
+        }
+    }
+    
+}

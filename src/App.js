@@ -14,11 +14,15 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          <Header/>
-
-          <div className="footer">
-            <Footer/>
-          </div>
+            <header className="app-header">
+                <Header/>
+            </header>    
+            <section className="app-section">
+                {this.props.children}  
+            </section>      
+            <footer className="app-footer">
+                <Footer/>
+            </footer>
         </div>
     );
   }
