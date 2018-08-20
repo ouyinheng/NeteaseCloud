@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
-import { getHot, toSearch } from '../../request/http.request'
-import OInput from '../../components/oyh/input';
+import { getHot, toSearch } from '../../../request/http.request'
+import OInput from '../../../components/oyh/input';
 class Search extends Component {
   constructor(props) {
     super(props);

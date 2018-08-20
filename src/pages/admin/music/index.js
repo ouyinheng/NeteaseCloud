@@ -10,8 +10,12 @@ class Music extends Component {
 
   render() {
     return (
-        <div className="App">
-            this is music page;
+        <div className="music">
+            <header className="music-header">
+              <div className="header-red"></div>
+              <div className="header-white"></div>
+              <div className="mini-card mine"></div>
+            </header>
         </div>
     );
   }

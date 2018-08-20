@@ -12,32 +12,33 @@
         width: calc(20vh);
         display: flex;
         justify-content: space-around;
+        a {
+            color: gainsboro;
+        }
+        .active {
+            color: white;
+        }
     }
     a {
         font-size: 25px;
         &:hover {
             text-decoration: none;
             background-color: transparent;
-            color: white;
         }
         &:active {
             background-color: transparent;
-            color: white;
         }
         &:focus {
             outline: none;
             background-color: transparent;
-            color: white;
         }
         &:visited {
             outline: none;
             background-color: transparent;
-            color: white;
         }
         &:focus-within {
             outline: none;
             background-color: transparent;
-            color: white;
         }
     }
 }

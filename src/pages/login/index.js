@@ -19,7 +19,7 @@ export default class Login extends Component {
                     <span className="iconfont icon-weixin"></span>
                     <span className="iconfont icon-QQ"></span>
                     <span className="iconfont icon-weibo"></span>
-                    <Link to="/login/email" className="iconfont icon-wangyi"></Link>
+                    <Link to="/email" className="iconfont icon-wangyi"></Link>
                 </footer>
             </div>
         )
