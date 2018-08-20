@@ -13,25 +13,25 @@
             font-size: 25px;
             color: white;
         }
-        input {
+        .outinput {
             width: 90%;
-            height: 40px;
-            border: none;
-            border-bottom: 1px solid RGB(249,121,111);
-            transition: all .5s;
-            background-color: RGB(230,72,60);
-            color: white;
-            font-size: 16px;
-            &:focus {
-                outline: none;
-                border-bottom: 1px solid gainsboro;
-                // color: #52616c;
-                // -webkit-transform: translate(10px) scale(0.9);
-                // transform: translate(10px) scale(0.9);
-            }
-            &::-webkit-input-placeholder {
-               color: gainsboro;
-               font-size: 16px;
+            position: relative;
+            input {
+                width: 100%;
+                height: 40px;
+                border: none;
+                border-bottom: 1px solid RGB(249,121,111);
+                transition: all .5s;
+                background-color: RGB(230,72,60);
+                color: white;
+                font-size: 16px;
+                &:focus {
+                    outline: none;
+                }
+                &::-webkit-input-placeholder {
+                   color: gainsboro;
+                   font-size: 16px;
+                }
             }
         }
     }

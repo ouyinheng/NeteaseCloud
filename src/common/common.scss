@@ -1,0 +1,47 @@
+@import './css/color.scss';
+.border-bottom {
+  position: relative; 
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    background: gainsboro;
+    transform: scaleY(0.3);
+    left: 0;
+    bottom: 0; 
+  }
+}
+.border-top {
+  position: relative; 
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    background: gainsboro;
+    transform: scaleY(0.3);
+    left: 0;
+    top: 0; 
+  }
+}
+.input-bottom {
+height: 2px;
+position: absolute;
+bottom: -1px;
+left: 40%;
+background-color: $colors-i;
+animation: InputBottom .3s ease-out;
+animation-fill-mode: forwards; }
+
+@keyframes InputBottom {
+  from {
+    width: 30%; 
+  }
+  to {
+    width: 100%;
+    left: 0; 
+  } 
+}

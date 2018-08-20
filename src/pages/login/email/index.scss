@@ -1,0 +1,53 @@
+@import '../../../common/css/color.scss';
+.email {
+
+    .email-header {
+        width: 100%;
+        height: 50px;
+        background-color: $colors-p;
+        color: white;
+        display: flex;
+        align-items: center;
+        span {
+            display: block;
+            padding: 0 10px;
+            &:first-of-type {
+                font-size: 20px;
+            }
+        }
+    }
+    .email-section {
+        margin-top: 20px;
+        .email-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            .email-icon {
+                display: block;
+                padding: 0 10px;
+                font-size: 20px;
+            }
+        }
+    }
+    .email-footer {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .email-submit {
+            width: 80%;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 30px;
+            text-align: center;
+            background-color: $colors-p;
+            color: white;
+            font-size: 20px;
+        }
+    }
+    
+    
+}

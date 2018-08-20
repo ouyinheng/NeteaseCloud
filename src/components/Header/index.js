@@ -15,8 +15,8 @@ class Header extends Component {
             <Link to="/admin/music" className="menu iconfont icon-view-list-o"></Link>
             <div className="center">
               <Link to="/admin/music" className="iconfont icon-yinle"></Link>
-              <Link to="/admin/music" className="iconfont icon-wangyiyunyinlezizhi-copy"></Link>
-              <Link to="/admin/music" className="iconfont icon-shipin"></Link>
+              <Link to="/admin/recom" className="iconfont icon-wangyiyunyinlezizhi-copy"></Link>
+              <Link to="/admin/mv" className="iconfont icon-shipin"></Link>
             </div>
             <Link to="/search" className="search iconfont icon-sousuo"></Link>
         </div>

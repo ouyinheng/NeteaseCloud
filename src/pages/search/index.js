@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 import { getHot, toSearch } from '../../request/http.request'
+import OInput from '../../components/oyh/input';
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -8,22 +9,23 @@ class Search extends Component {
       hotNode: '',
       localNode:'',
       inputValue: '',
-      local:''
+      local:'',
+      border:''
     };
     // this.toSearch = this.toSearch.bind(this)
     this.goBack = this.goBack.bind(this);
-    this.setInputValue = this.setInputValue.bind(this);
+    this.getInputValue = this.getInputValue.bind(this);
     this.submit = this.submit.bind(this);
     this.del = this.del.bind(this);
+    this.getfocus = this.getfocus.bind(this);
+    this.getblur = this.getblur.bind(this);
   }
   goBack(){
     window.history.go(-1)
   }
-  setInputValue(e){
-    let inputValue = e.target.value;
-    this.setState({
-      inputValue
-    })
+  getInputValue(value){
+    let inputValue = value;
+    this.setState({ inputValue })
   }
   submit(e){
     e.preventDefault();
@@ -42,10 +44,13 @@ class Search extends Component {
     })
   }
   del(e,index){
-    console.log(index)
-    this.state.local.splice(1,index);
-    localStorage.setItem('search',this.state.local)
-    this.renderLocal(this.state.local)
+    this.state.local.splice(index,1);
+    console.log(index,this.state.local)
+    var local = this.state.local;
+    this.setState({local})
+    localStorage.setItem('search',JSON.stringify(local))
+    const localNode = this.renderLocal(local);
+    this.setState({localNode,local})
   }
   componentWillMount(){
     getHot().then(res=>{
@@ -60,13 +65,21 @@ class Search extends Component {
       console.log(err)
     })
     let local = localStorage.getItem('search');
+    console.log('localhisttory',local)
     if(local){
       local=JSON.parse(local);
       const localNode = this.renderLocal(local);
       this.setState({localNode,local})
     }
-    console.log(local)
-    
+  }
+  getfocus(){
+    console.log('asdf')
+    const border = this.renderInput(true)
+    this.setState({border})
+  }
+  getblur(){
+    const border = this.renderInput(false)
+    this.setState({border})
   }
   renderHot(data){
     return data.map((item,index)=>{
@@ -80,7 +93,7 @@ class Search extends Component {
       return ( 
         <div className="localHistory-item" key={index}>
           <span className="iconfont icon-time font-gray"></span>
-          <div className="local-left">
+          <div className="local-left border-bottom">
             <div style={{fontSize:'16px'}}>{ item }</div>
             <div style={{fontSize:'14px'}} className="iconfont icon-guanbi font-gray" onClick={(e)=>{this.del(e,index)}}></div>
           </div>
@@ -88,15 +101,30 @@ class Search extends Component {
       )
     })
   }
+  renderInput(data){
+      if(data){
+        return (
+          <div className="input-bottom"></div>
+        )
+      } else {
+        return null;
+      }
+  }
   render() {
     return (
         <div className="Search">
           <form className="search-header" onSubmit={this.submit}>
             <span className="iconfont icon-arrowleft" onClick={this.goBack}></span>
-            <input placeholder="哈哈哈哈" value={this.state.inputValue}  onChange={this.setInputValue}/>
+            <div className="outinput">
+              {/* <input onFocus={this.getfocus} onBlur={this.getblur} placeholder="哈哈哈哈" value={this.state.inputValue}  onChange={this.setInputValue}/>
+              { this.state.border } */}
+              <OInput 
+                tochange={this.getInputValue}
+              />
+            </div>
           </form>
           <section className="search-section">
-            <div className="classify border-1">
+            <div className="classify border-bottom">
                 <div className="center">
                   <span className="iconfont icon-team"></span>
                   <span>歌手分类</span>

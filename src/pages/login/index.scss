@@ -1,0 +1,54 @@
+@import '../../common/css/color.scss';
+.login {
+    width: 100%;
+    height: calc(100vh);
+    background: white;
+    .login-header {
+        width: 100%;
+        height: calc(35vh);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        span {
+            font-size: 50px;
+            color: $colors-p;
+        }
+    }
+    .login-section {
+        width: 100%;
+        height: calc(30vh);
+        padding: 50px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 30px;
+        a {
+            color: black;
+        }
+        .login-btn {
+            width: 80%;
+            height: 50px;
+            line-height: 50px;
+            color: $colors-p;
+            border-radius: 30px;
+            border: 1px solid $colors-p;
+            text-align: center;
+        }
+        .login-link {
+            text-decoration: underline;
+        }
+    }
+    .login-footer {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        span,a {
+            display: block;
+            color: black;
+            font-size: 30px;
+        }
+    }
+}
