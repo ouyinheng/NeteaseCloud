@@ -1,6 +1,7 @@
 .footer {
     width: 100%;
     height: 100%;
+    background-color: white;
     color: black;
     display: flex;
     justify-content: space-between;
@@ -13,6 +14,7 @@
             height: 50px;
             margin-right: 10px;
             margin-left: 10px;
+            border-radius: 15px;
         }
         .footer-content {
             display: flex;
