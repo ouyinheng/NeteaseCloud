@@ -3,6 +3,7 @@ import './index.scss';
 import OInput from '../../../components/oyh/input';
 import { toLogin } from '../../../request/http.request';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 export default class Email extends Component {
     constructor(props){
         super(props);
@@ -29,7 +30,7 @@ export default class Email extends Component {
             if(res.code=== 200){
                 localStorage.setItem('token',JSON.stringify(res));
                 // window.history.push('/admin')
-                this.context.router.history.push('/admin')
+                this.context.router.history.push('/admin/recom/recommend')
             }
         }).catch(err=>{
             console.log(err)
@@ -68,7 +69,10 @@ export default class Email extends Component {
                         <div className="email-submit"></div>
                     </section>
                     <footer className="email-footer">
-                        <div className="email-submit" onClick={this.tosubmit} >登录</div>
+                        {/* <div className="email-submit" onClick={this.tosubmit} >登录</div> */}
+                        <Button variant="contained" color="secondary" onClick={this.tosubmit} className="email-submit">
+                        登录
+                        </Button>
                     </footer>
                 </form>
             </div>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/header'
 import Footer from './components/footer'
+import ListItem from '@material-ui/core/ListItem';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,9 +22,9 @@ class App extends Component {
             <section className="app-section">
                 {this.props.children}  
             </section>      
-            <footer className="app-footer">
+            <ListItem button className="app-footer border-top">
                 <Footer/>
-            </footer>
+            </ListItem>
         </div>
     );
   }

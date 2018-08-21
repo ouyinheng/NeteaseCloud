@@ -6,12 +6,15 @@ export default class Ripple extends Component {
         this.state = {
 
         }
+        this.setRipple = this.setRipple.bind(this);
     }
-
+    setRipple(){
+        
+    }
     render(){
 
         return (
-            <div className="ripple">
+            <div className="ripple" onClick={this.setRipple}>
                 { this.props.children }
             </div>
         )

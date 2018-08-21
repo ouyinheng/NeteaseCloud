@@ -1,0 +1,13 @@
+.ShufflingFigure {
+    width: 100%;
+    display: flex;
+    .sg-card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .sf-img {
+            border-radius: 10px;
+            width: 95%;
+        }
+    }
+}

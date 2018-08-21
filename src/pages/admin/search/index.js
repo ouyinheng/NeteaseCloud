@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './index.scss';
 import { getHot, toSearch } from '../../../request/http.request'
 import OInput from '../../../components/oyh/input';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -84,20 +89,20 @@ class Search extends Component {
   renderHot(data){
     return data.map((item,index)=>{
       return (
-        <span className="hot-tips" key={index}>{item.first}</span>
+        <Button variant="outlined" className="hot-tips" key={index}>
+          {item.first}
+        </Button>
       )
     })
   }
   renderLocal(data){
     return data.map((item,index)=>{
       return ( 
-        <div className="localHistory-item" key={index}>
-          <span className="iconfont icon-time font-gray"></span>
-          <div className="local-left border-bottom">
-            <div style={{fontSize:'16px'}}>{ item }</div>
+          <ListItem button className="list-item flex -center border-bottom" key={index}>
+            <span className="iconfont icon-time font-gray"></span>
+            <ListItemText primary={item}/>
             <div style={{fontSize:'14px'}} className="iconfont icon-guanbi font-gray" onClick={(e)=>{this.del(e,index)}}></div>
-          </div>
-        </div>
+          </ListItem>
       )
     })
   }
@@ -137,9 +142,9 @@ class Search extends Component {
                 { this.state.hotNode }
               </div>
             </div>
-            <div className="localHistory-group">
+            <List component="nav" className="localHistory-group">
               { this.state.localNode }
-            </div>
+            </List>
           </section>
         </div>
     );

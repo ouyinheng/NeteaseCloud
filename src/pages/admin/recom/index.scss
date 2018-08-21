@@ -1,0 +1,52 @@
+@import '../../../common/css/color.scss';
+.recom {
+    
+    .recom-nav-group {
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        background-color: $colors-p;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 100;
+        .recom-nav-item {
+            width: 100%;
+            height:30px;
+            line-height: 30px;
+            padding: 10px 0;
+            text-align: center;
+            color: gainsboro;
+            &:hover {
+               animation: showback .5s;
+            }
+        }
+        .active {
+            color: white;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 40px;
+                height: 2px;
+                background-color: white;
+            }
+        }
+    }
+    .recom-section {
+        padding: 49px 0;
+    }
+}
+@keyframes showback {
+    from {
+        background-color: $colors-p;
+    }
+    to {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+}

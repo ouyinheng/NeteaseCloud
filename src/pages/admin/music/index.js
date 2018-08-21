@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './index.scss';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+// import Divider from '@material-ui/core/Divider';
 class Music extends Component {
   constructor(props) {
     super(props);
@@ -26,34 +30,28 @@ class Music extends Component {
               </div>
             </header>
             <section className="music-section">
-              <div className="list-item flex -center">
-                <span className="list-icon iconfont icon-yinyueclick"></span>
-                <div className="list-content border-bottom ">
-                  <span>本地音乐</span>
-                  <span>({this.state.num})</span>
-                </div>
-              </div>
-              <div className="list-item flex -center">
-                <span className="list-icon iconfont icon-yinyueclick"></span>
-                <div className="list-content border-bottom ">
-                  <span>本地音乐</span>
-                  <span>({this.state.num})</span>
-                </div>
-              </div>
-              <div className="list-item flex -center">
-                <span className="list-icon iconfont icon-yinyueclick"></span>
-                <div className="list-content border-bottom ">
-                  <span>本地音乐</span>
-                  <span>({this.state.num})</span>
-                </div>
-              </div>
-              <div className="list-item flex -center">
-                <span className="list-icon iconfont icon-yinyueclick"></span>
-                <div className="list-content border-bottom ">
-                  <span>本地音乐</span>
-                  <span>({this.state.num})</span>
-                </div>
-              </div>
+              {/* <Divider /> */}
+              <List component="nav">
+                <ListItem button className="list-item flex -center border-bottom">
+                  <span className="list-icon iconfont icon-yinyueclick"></span>
+                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                </ListItem>
+                <ListItem button className="list-item flex -center border-bottom">
+                  <span className="list-icon iconfont icon-yinyueclick"></span>
+                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                </ListItem>
+                <ListItem button className="list-item flex -center border-bottom">
+                  <span className="list-icon iconfont icon-yinyueclick"></span>
+                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                </ListItem>
+                <ListItem button className="list-item flex -center">
+                  <span className="list-icon iconfont icon-yinyueclick"></span>
+                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                </ListItem>
+                {/* <ListItem button component="a" href="#simple-list">
+                  <ListItemText primary="Spam" />
+                </ListItem> */}
+              </List>
             </section>
         </div>
     );

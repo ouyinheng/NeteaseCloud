@@ -28,8 +28,8 @@
         }
         .login-btn {
             width: 80%;
-            height: 50px;
-            line-height: 50px;
+            height: 50px!important;
+            // line-height: 50px;
             color: $colors-p;
             border-radius: 30px;
             border: 1px solid $colors-p;

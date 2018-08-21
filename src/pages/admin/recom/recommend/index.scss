@@ -1,0 +1,77 @@
+@import '../../../../common/css/color.scss';
+.Recommend {
+    .Recommend-header {
+        position: relative;
+        .Recommend-red {
+            width: 100%;
+            height: 100px;
+            background-color: $colors-p;
+        }
+        .Recommend-white {
+            width: 100%;
+            height: 50px;
+            background-color: white;
+        }
+        .Recommend-card {
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }
+    }
+    .Recommend-section {
+        padding: 20px 0;
+        .Recommend-classify {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            .classify-item {
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+                color: white;
+                align-items: center;
+                padding: 20px 0;
+                .item-content {
+                    color: black;
+                    padding: 10px 0 5px;
+                    font-size: 14px;
+                }
+                .classify-btn {
+                    width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    border-radius: 50%;
+                    box-shadow: 0 1px 10px 2px RGBA(230, 72, 60,0.5);
+                    background-color: $colors-p;
+                    color: white;
+                    text-align: center;
+                    font-size: 28px;
+                }
+            }
+        }
+        .recom-song-list {
+            padding: 20px 10px;
+            &-title {
+                font-size: 20px;
+            }
+            .list-group {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                .list-item {
+                    width: 32%;
+                    min-width: 110px;
+                    padding: 10px 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .list-img {
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
