@@ -1,0 +1,32 @@
+@import '../../../../common/css/color.scss';
+.singer {
+    width: 100%;
+    background-color: $colors-back;
+    padding: 60px 0 0;
+    &-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        &-title {
+            color: white;
+            font-size: 20px;
+        }
+    }
+    &-section {
+        width: 100%;
+        padding: 10px 0 0;
+        &-card {
+            width: 100%;
+            &-item {
+                width: 100%;
+                background-color: white;
+                &:nth-of-type(3n-2) {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    
+}

@@ -12,7 +12,11 @@ import App from './App';
         import Broad from './pages/admin/recom/broad'
 
     import Mv from './pages/admin/mv'
+
     import Search from './pages/admin/search'
+        import Singer from './pages/admin/search/singer'
+        import SingerList from './pages/admin/search/singerlist'
+        import SingerDetails from './pages/admin/search/singerdetails'
 
 
 
@@ -43,6 +47,10 @@ export default class IRouter extends Component {
                             </App>
                         }/>
                         <Route exact={true} path="/search" component={Search}/>
+                        <Route exact={true} path="/search/singer"  component={Singer}/>
+                        <Route exact={true} path="/search/singer/singerlist"  component={SingerList}/>
+                        <Route exact={true} path="/search/singer/singerlist/singerdetails"  component={SingerDetails}/>
+
                     </Switch>
                 </div>
             </BrowserRouter >

@@ -41,4 +41,11 @@
             background-color: transparent;
         }
     }
+
+}
+.left {
+    min-width: 300px;
+    height: 500px;
+    background-color: white;
+    z-index: 1000;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.scss';
 import { getHot, toSearch } from '../../../request/http.request'
 import OInput from '../../../components/oyh/input';
@@ -7,6 +8,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
+import TopBar from '../../../components/oyh/topBar';
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -119,23 +121,22 @@ class Search extends Component {
     return (
         <div className="Search">
           <form className="search-header" onSubmit={this.submit}>
-            <span className="iconfont icon-arrowleft" onClick={this.goBack}></span>
-            <div className="outinput">
-              {/* <input onFocus={this.getfocus} onBlur={this.getblur} placeholder="哈哈哈哈" value={this.state.inputValue}  onChange={this.setInputValue}/>
-              { this.state.border } */}
-              <OInput 
-                tochange={this.getInputValue}
-              />
-            </div>
+            <TopBar>
+              <div className="outinput">
+                <OInput 
+                  tochange={this.getInputValue}
+                />
+              </div>
+            </TopBar>
           </form>
           <section className="search-section">
-            <div className="classify border-bottom">
-                <div className="center">
+            <ListItem button className="classify border-bottom">
+                <Link to="/search/singer" className="center">
                   <span className="iconfont icon-team"></span>
                   <span>歌手分类</span>
                   <span className="iconfont icon-right"></span>
-                </div>
-            </div>
+                </Link>
+            </ListItem>
             <div className="search-hot">
               <div className="hot-title">热门搜索</div>
               <div className="tips">
