@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.flex {
+  display: flex;
+}
+.around {
+  display: flex;
+  justify-content: space-around;
+}
+.between {
+  display: flex;
+  justify-content: space-between;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.-center {
+  align-items: center;
+}

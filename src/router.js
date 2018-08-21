@@ -27,7 +27,7 @@ export default class IRouter extends Component {
                         <Route path="/admin" render={()=>
                             <App>
                                 <Route path="/admin/music" component={Music}/>
-                                <Route path="/admin/" component={Recom}/>
+                                <Route path="/admin/recom" component={Recom}/>
                                 <Route path="/admin/mv" component={Mv}/>
                             </App>
                         }/>
