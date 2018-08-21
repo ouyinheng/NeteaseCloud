@@ -14,7 +14,9 @@ class Music extends Component {
             <header className="music-header">
               <div className="header-red"></div>
               <div className="header-white"></div>
-              <div className="mini-card mine"></div>
+              <div className="mini-card mine">
+                
+              </div>
             </header>
         </div>
     );
