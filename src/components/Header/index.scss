@@ -8,6 +8,7 @@
     padding: 10px 20px;
     background-color: RGB(230,72,60);
     color: white;
+    position: relative;
     .center {
         width: calc(20vh);
         display: flex;
@@ -41,11 +42,8 @@
             background-color: transparent;
         }
     }
-
-}
-.left {
-    min-width: 300px;
-    height: 500px;
-    background-color: white;
-    z-index: 1000;
+    .modelmune {
+        width:100%;
+        background-color: #F2F0EF;
+    }
 }

@@ -5,18 +5,21 @@ export default class ShufflingFigure extends Component {
     constructor(props){
         super(props);
         this.state = {
-            imgurl:"http://p1.music.126.net/gV3JM2igHBhHySggwHbFLw==/109951163460657848.jpg"
+            imgurl:"http://p1.music.126.net/gV3JM2igHBhHySggwHbFLw==/109951163460657848.jpg",
+            imglist:''
         }
     }
     componentWillReceiveProps(){
         let i=0;
         let that = this;
+        let imglist = that.props.imglist.result;
+        this.setState({imglist})
         setInterval(()=>{
-            let imglist = that.props.imglist.result;
-            that.setState({
+            var imglist = this.state.imglist;
+            imglist && that.setState({
                 imgurl: imglist[i].picUrl
             })
-            i=(i>=imglist.length-1)?0:i+1
+            i=imglist?(i>=imglist.length-1)?0:i+1:0
         },2000)
     }
   render() {

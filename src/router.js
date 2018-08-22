@@ -48,7 +48,7 @@ export default class IRouter extends Component {
                         }/>
                         <Route exact={true} path="/search" component={Search}/>
                         <Route exact={true} path="/search/singer"  component={Singer}/>
-                        <Route exact={true} path="/search/singer/singerlist"  component={SingerList}/>
+                        <Route exact={true} path="/search/singer/singerlist/:key/:name"  component={SingerList}/>
                         <Route exact={true} path="/search/singer/singerlist/singerdetails"  component={SingerDetails}/>
 
                     </Switch>

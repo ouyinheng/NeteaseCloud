@@ -1,0 +1,12 @@
+.tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    span {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}

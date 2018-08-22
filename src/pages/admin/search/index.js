@@ -9,6 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import TopBar from '../../../components/oyh/topBar';
+import Modal from '../../../components/oyh/modal';
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -119,35 +120,37 @@ class Search extends Component {
   }
   render() {
     return (
-        <div className="Search">
-          <form className="search-header" onSubmit={this.submit}>
-            <TopBar>
-              <div className="outinput">
-                <OInput 
-                  tochange={this.getInputValue}
-                />
-              </div>
-            </TopBar>
-          </form>
-          <section className="search-section">
-            <ListItem button className="classify border-bottom">
-                <Link to="/search/singer" className="center">
-                  <span className="iconfont icon-team"></span>
-                  <span>歌手分类</span>
-                  <span className="iconfont icon-right"></span>
-                </Link>
-            </ListItem>
-            <div className="search-hot">
-              <div className="hot-title">热门搜索</div>
-              <div className="tips">
-                { this.state.hotNode }
-              </div>
+          <Modal>
+            <div className="Search">
+                <form className="search-header" onSubmit={this.submit}>
+                  <TopBar>
+                    <div className="outinput">
+                      <OInput 
+                        tochange={this.getInputValue}
+                      />
+                    </div>
+                  </TopBar>
+                </form>
+                <section className="search-section">
+                  <ListItem button className="classify border-bottom">
+                      <Link to="/search/singer" className="center">
+                        <span className="iconfont icon-team"></span>
+                        <span>歌手分类</span>
+                        <span className="iconfont icon-right"></span>
+                      </Link>
+                  </ListItem>
+                  <div className="search-hot">
+                    <div className="hot-title">热门搜索</div>
+                    <div className="tips">
+                      { this.state.hotNode }
+                    </div>
+                  </div>
+                  <List component="nav" className="localHistory-group">
+                    { this.state.localNode }
+                  </List>
+                </section>
             </div>
-            <List component="nav" className="localHistory-group">
-              { this.state.localNode }
-            </List>
-          </section>
-        </div>
+          </Modal>
     );
   }
 }

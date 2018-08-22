@@ -3,7 +3,6 @@ import './index.scss';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-// import Divider from '@material-ui/core/Divider';
 class Music extends Component {
   constructor(props) {
     super(props);
@@ -12,9 +11,15 @@ class Music extends Component {
       username:'nihao--shijie',
       num:0
     };
-    // this.toSearch = this.toSearch.bind(this)
   }
 
+  componentWillMount(){
+    let userinfo = localStorage.getItem('token');
+    userinfo && this.setState({
+      img:JSON.parse(userinfo).profile.avatarUrl,
+      username:JSON.parse(userinfo).profile.nickname
+    })
+  }
   render() {
     return (
         <div className="music">
@@ -30,7 +35,6 @@ class Music extends Component {
               </div>
             </header>
             <section className="music-section">
-              {/* <Divider /> */}
               <List component="nav">
                 <ListItem button className="list-item flex -center border-bottom">
                   <span className="list-icon iconfont icon-yinyueclick"></span>

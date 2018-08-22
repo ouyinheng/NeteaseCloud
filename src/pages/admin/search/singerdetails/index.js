@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import './index.scss';  
 import TopBar from '../../../../components/oyh/topBar';
+import Button from '@material-ui/core/Button';
+import ListItem from '@material-ui/core/ListItem';
 
 export default class SingerDetails extends Component {
     constructor(props){
@@ -31,14 +33,34 @@ export default class SingerDetails extends Component {
     }
     render(){
         return (
-            <div className="SingerDetails" style={{backgroundImage: 'url('+this.state.params.imgurl+')'}}>
-                <header className="SingerDetails-header">
-                    <TopBar color={{background:'transparent'}}>
-                        <span className="SingerDetails-header-title">{ this.state.params.name }</span>
-                    </TopBar>
-                </header>
-            </div>
-            
+                <div className="SingerDetails">
+                    <header className="SingerDetails-header">
+                        <TopBar color={{background:'transparent'}}>
+                            <span className="SingerDetails-header-title">{ this.state.params.name }</span>
+                        </TopBar>
+                    </header>
+                    <section className="SingerDetails-section">
+                        <div className="SingerDetails-section-collect" style={{backgroundImage: 'linear-gradient(rgba(144,144,144,0.2), rgba(40,40,40, 0.2)),url('+this.state.params.imgurl+')'}}>
+                           <div className="clection">
+                                <Button>
+                                    <span>+</span>
+                                    <div>收藏</div>
+                                </Button>
+                           </div>
+                        </div>
+                        <article  className="SingerDetails-section-article">
+                            <nav className="SingerDetails-section-article-nav">
+                                <ListItem button><span>热门演唱</span></ListItem>
+                                <ListItem button><span>专辑</span></ListItem>
+                                <ListItem button><span>视频</span></ListItem>
+                                <ListItem button><span>艺人信息</span></ListItem>
+                            </nav>
+                            <div className="SingerDetails-section-content">
+
+                            </div>
+                        </article>
+                    </section>
+                </div>
         )
     }
 } 

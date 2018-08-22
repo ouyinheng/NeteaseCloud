@@ -1,10 +1,9 @@
 import axios from 'axios';
-// const base = 'http://192.168.1.236:3001'
-const base = 'http://192.168.70.1:3001'
+const base = 'http://192.168.1.236:3001'
+// const base = 'http://192.168.70.1:3001'
 
 export const toSearch = params => {return axios.get(`${base}/search?keywords=${params}`).then(res =>res.data);}
-export const getHot = params => {return axios.get(`${base}/search/hot`).then(res =>res.data);}
-export const getFM = params => {return axios.get(`${base}/personal_fm`).then(res =>res.data);}
+export const getHot = () => {return axios.get(`${base}/search/hot`).then(res =>res.data);}
 export const toLogin = params => {return axios.get(`${base}/login?email=${params.username}&password=${params.pwd}`).then(res =>res.data);}
 // 独家放送
 export const privatecontent = () => {return axios.get(`${base}/personalized/privatecontent`).then(res =>res.data);}
@@ -16,6 +15,8 @@ export const newsong = () => {return axios.get(`${base}/personalized/newsong`).t
 export const djprogram = () => {return axios.get(`${base}/personalized/djprogram`).then(res =>res.data);}
 // 歌手分类
 export const singerlist = params => {return axios.get(`${base}/artist/list?cat=`+params).then(res =>res.data);}
+// FM
+export const getFM = () => {return axios.get(`${base}/personal_fm`).then(res =>res.data);}
 
 // ouyinheng@163.com
 // 651224ou

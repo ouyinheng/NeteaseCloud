@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss';
 
-import { privatecontent,personalized,newsong,djprogram } from '../../../../request/http.request'
+import { privatecontent,personalized,newsong,djprogram,getFM } from '../../../../request/http.request'
 import ShufflingFigure from '../../../../components/oyh/ShufflingFigure';
 import ListItem from '@material-ui/core/ListItem';
 export default class Recommend extends Component {
@@ -14,6 +14,7 @@ export default class Recommend extends Component {
       newsongs:'',
       newdt:''
     }
+    this.toFMPlay = this.toFMPlay.bind(this);
   }
   renderImgNode(data){
     return data.forEach((item,index)=>{
@@ -78,6 +79,14 @@ export default class Recommend extends Component {
 
     })
   }
+  toFMPlay(){
+    console.log('asdf')
+    getFM().then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
   render() {
     return (
         <div className="Recommend">
@@ -91,8 +100,8 @@ export default class Recommend extends Component {
               </div>
             </header>
             <section className="Recommend-section">
-              <div className="Recommend-classify border-bottom">
-                <div className="classify-item">
+              <div className="Recommend-classify border-bottom"  onClick={this.toFMPlay}>
+                <div className="classify-item" >
                     <span className="iconfont icon-FM classify-btn"></span>
                     <div className="item-content">私人FM</div>
                 </div>

@@ -3,6 +3,7 @@ import './index.scss';
 import { singerlist } from '../../../../request/http.request';
 import TopBar from '../../../../components/oyh/topBar';
 import ListItem from '@material-ui/core/ListItem';
+import Modal from '../../../../components/oyh/modal';
 
 export default class SingerList extends Component {
     constructor(props){
@@ -40,7 +41,7 @@ export default class SingerList extends Component {
         })
     }
     componentWillMount(){
-        let match=this.props.location.query||this.state.match;
+        let match=this.props.match.params||this.state.match;
         match && this.setState({match})
         singerlist(match.key).then(res=>{
             console.log(res)
@@ -52,17 +53,18 @@ export default class SingerList extends Component {
     }
     render(){
         return (
-            <div className="SingerList">
-                <header className="SingerList-header">
-                    <TopBar>
-                        <span className="SingerList-header-title">{ this.state.match.name }-热门歌手</span>
-                    </TopBar>
-                </header>
-                <section className="SingerList-section">
-                    { this.state.singerlist }
-                </section>
-            </div>
-            
+            <Modal>
+                <div className="SingerList">
+                    <header className="SingerList-header">
+                        <TopBar>
+                            <span className="SingerList-header-title">{ this.state.match.name }-热门歌手</span>
+                        </TopBar>
+                    </header>
+                    <section className="SingerList-section">
+                        { this.state.singerlist }
+                    </section>
+                </div>
+            </Modal>
         )
     }
 } 

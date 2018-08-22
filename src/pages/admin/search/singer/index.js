@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import './index.scss';
 import TopBar from '../../../../components/oyh/topBar';
 import ListItem from '@material-ui/core/ListItem';
+import Modal from '../../../../components/oyh/modal';
 
 export default class Singer extends Component {
     constructor(props) {
@@ -45,21 +46,15 @@ export default class Singer extends Component {
     renderListNode(data){
         return data.map((item,index)=>{
             return (
-                <div className="singer-section-card-item border-bottom">
-                    <ListItem button key={item.key} onClick={(e)=>{this.todetail(e,item.key,item.name)}}>{item.name}</ListItem>
+                <div className="singer-section-card-item border-bottom" key={index}>
+                    <ListItem button onClick={(e)=>{this.todetail(e,item.key,item.name)}}>{item.name}</ListItem>
                 </div>
             )
         })
     }
     todetail(e,key,name){
         // this.context.router.history.push(`/search/singer/singerlist?key=${key}&name=${name}`)
-        this.props.history.push({
-            pathname:"/search/singer/singerlist",
-            query:{
-                key:key,
-                name:name
-            }
-          })
+        this.props.history.push("/search/singer/singerlist/"+key+"/"+name)
     }
     componentWillMount(){
         
@@ -68,18 +63,20 @@ export default class Singer extends Component {
     }
     render(){
         return (
-            <div className="singer">
-                <header className="singer-header">
-                    <TopBar>
-                        <span className="singer-header-title">歌手分类</span>
-                    </TopBar>
-                </header>
-                <section className="singer-section">
-                    <div className="singer-section-card">
-                        { this.state.clslistnode }
-                    </div>
-                </section>
-            </div>
+            <Modal>
+                <div className="singer">
+                    <header className="singer-header">
+                        <TopBar>
+                            <span className="singer-header-title">歌手分类</span>
+                        </TopBar>
+                    </header>
+                    <section className="singer-section">
+                        <div className="singer-section-card">
+                            { this.state.clslistnode }
+                        </div>
+                    </section>
+                </div>
+            </Modal>
         )
     }
 }

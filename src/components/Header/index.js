@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './index.scss';
 import Drawer from '@material-ui/core/Drawer';
+import Leftmenu from '../../pages/admin/leftmenu';
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       active:1,
-      side:''
+      side:'',
+      usreinfo:''
     };
     this.setActive = this.setActive.bind(this)
     this.toggleDrawer = this.toggleDrawer.bind(this)
@@ -22,6 +24,14 @@ class Header extends Component {
       [side]: open,
     });
   };
+  componentWillMount(){
+    let userinfo = localStorage.getItem('token');
+    if(userinfo){
+      userinfo = JSON.parse(userinfo)
+      console.log(userinfo)
+      this.setState({userinfo})
+    }
+  }
   render() {
     return (
         <div className="header">
@@ -32,17 +42,8 @@ class Header extends Component {
               <Link to="/admin/mv" onClick={(e)=>{this.setActive(e,2)}}  className={this.state.active===2?'active iconfont icon-shipin  icon-ripple':'iconfont icon-shipin  icon-ripple'}></Link>
             </div>
             <Link to="/search" className="search iconfont icon-sousuo icon-ripple"></Link>
-            <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
-              <div
-                tabIndex={0}
-                role="button"
-                onClick={this.toggleDrawer('left', false)}
-                onKeyDown={this.toggleDrawer('left', false)}
-              >
-                <div className="left">
-asdf
-                </div>
-              </div>
+            <Drawer className="modelmune" open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+                <Leftmenu userinfo={this.state.userinfo}/>
             </Drawer>
         </div>
     );
