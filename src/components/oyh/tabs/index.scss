@@ -1,3 +1,4 @@
+@import '../../../common/css/color.scss';
 .tabs {
     width: 100%;
     display: flex;
@@ -8,5 +9,20 @@
         width: 100%;
         display: block;
         text-align: center;
+    }
+    .active {
+        position: relative;
+        color: $colors-p;
+        &::after {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            content: '';
+            width: 50%;
+            height: 2px;
+            border-radius: 2px;
+            background-color: $colors-p;
+        }
     }
 }

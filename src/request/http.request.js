@@ -1,6 +1,6 @@
 import axios from 'axios';
-const base = 'http://192.168.1.236:3001'
-// const base = 'http://192.168.70.1:3001'
+// const base = 'http://192.168.1.236:3001'
+const base = 'http://192.168.70.1:3001'
 
 export const toSearch = params => {return axios.get(`${base}/search?keywords=${params}`).then(res =>res.data);}
 export const getHot = () => {return axios.get(`${base}/search/hot`).then(res =>res.data);}
@@ -17,6 +17,10 @@ export const djprogram = () => {return axios.get(`${base}/personalized/djprogram
 export const singerlist = params => {return axios.get(`${base}/artist/list?cat=`+params).then(res =>res.data);}
 // FM
 export const getFM = () => {return axios.get(`${base}/personal_fm`).then(res =>res.data);}
+// 获取歌手单曲
+export const getArtists = params => {return axios.get(`${base}/artists?id=${params}`).then(res =>res.data);}
+// 获取歌手描述
+export const getArtistsDesc = params => {return axios.get(`${base}/artist/desc?id=${params}`).then(res =>res.data);}
 
 // ouyinheng@163.com
 // 651224ou

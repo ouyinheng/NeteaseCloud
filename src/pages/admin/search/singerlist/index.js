@@ -19,14 +19,7 @@ export default class SingerList extends Component {
     }
     todetails(id,url,name){
         console.log(id)
-        this.props.history.push({
-            pathname:'/search/singer/singerlist/singerdetails',
-            query:{
-                id: id,
-                imgurl: url,
-                name: name
-            }
-        })
+        this.props.history.push("/singerdetails/"+id)
     }
     renderListNode(data) {
         return data.map((item,index)=>{
