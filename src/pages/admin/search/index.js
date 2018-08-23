@@ -58,7 +58,7 @@ class Search extends Component {
     const localNode = this.renderLocal(local);
     this.setState({localNode,local})
   }
-  componentWillMount(){
+  componentDidMount(){
     getHot().then(res=>{
       if(res.code === 200) {
         const hotNode = this.renderHot(res.result.hots);

@@ -9,7 +9,7 @@ export default class Leftmunu extends Component {
         
     };
   }
-  componentWillMount(){
+  componentDidMount(){
         console.log(this.props)
   }
   render() {

@@ -26,7 +26,7 @@ export default class Tabs extends Component {
             )
         })
     }
-    componentWillMount(){
+    componentDidMount(){
         let tabName = this.props.tabName;
         let tablabel = this.renderTab(tabName,0);
         this.setState({tablabel,tabName})

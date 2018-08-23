@@ -24,7 +24,7 @@ class Header extends Component {
       [side]: open,
     });
   };
-  componentWillMount(){
+  componentDidMount(){
     let userinfo = localStorage.getItem('token');
     if(userinfo){
       userinfo = JSON.parse(userinfo)

@@ -13,7 +13,7 @@ class Music extends Component {
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     let userinfo = localStorage.getItem('token');
     userinfo && this.setState({
       img:JSON.parse(userinfo).profile.avatarUrl,

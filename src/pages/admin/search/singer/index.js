@@ -55,7 +55,7 @@ export default class Singer extends Component {
         // this.context.router.history.push(`/search/singer/singerlist?key=${key}&name=${name}`)
         this.props.history.push("/search/singer/singerlist/"+key+"/"+name)
     }
-    componentWillMount(){
+    componentDidMount(){
         
         const clslistnode = this.renderListNode(this.state.clslist);
         this.setState({clslistnode})

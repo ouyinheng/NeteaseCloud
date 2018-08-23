@@ -9,7 +9,7 @@ export default class ShufflingFigure extends Component {
             imglist:''
         }
     }
-    componentWillReceiveProps(){
+    componentDidMount(){
         let i=0;
         let that = this;
         let imglist = that.props.imglist.result;

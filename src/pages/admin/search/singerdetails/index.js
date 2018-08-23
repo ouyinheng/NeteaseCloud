@@ -51,7 +51,7 @@ export default class SingerDetails extends Component {
         }
     }
     
-    componentWillMount(){
+    componentDidMount(){
         var id = this.props.match.params.id;
         this.setState({id})
         getArtists(id).then(res=>{

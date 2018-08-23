@@ -32,7 +32,7 @@ export default class SingerList extends Component {
             )
         })
     }
-    componentWillMount(){
+    componentDidMount(){
         let match=this.props.match.params||this.state.match;
         match && this.setState({match})
         singerlist(match.key).then(res=>{

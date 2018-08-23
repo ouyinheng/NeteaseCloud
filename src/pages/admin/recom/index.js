@@ -22,7 +22,7 @@ export default class Recom extends Component {
       active:value
     })
   }
-  componentWillMount(){
+  componentDidMount(){
     var userinfo = localStorage.getItem('token');
     if(userinfo) {
       userinfo = JSON.parse(userinfo);
