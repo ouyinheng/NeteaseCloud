@@ -102,6 +102,35 @@
                     }
                 }
             }
+            .album-items {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                margin: 5px;
+                img {
+                    width: 60px;
+                    border-radius: 5px;
+                }
+                &-intro {
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 10px;
+                    text-align: center;
+                    span {
+                        text-align: left;
+                        &:nth-of-type(1) {
+                            display: block;
+                            padding: 5px 0;
+                        }
+                        &:nth-of-type(2) {
+                            display: inline-block;
+                            padding: 5px 0;
+                            font-size:12px;
+                            color: gray;
+                        }
+                    }
+                }
+            }
             .SingerList-desc {
                 width: 100%;
                 box-sizing: border-box;

@@ -3,7 +3,7 @@ import './index.scss';
 import TopBar from '../../../../components/oyh/topBar';
 import Button from '@material-ui/core/Button';
 import ListItem from '@material-ui/core/ListItem';
-import { getArtists, getArtistsDesc } from '../../../../request/http.request';
+import { getArtists, getArtistsDesc, getArtistsAlbum, getArtistsMV } from '../../../../request/http.request';
 import Tabs from '../../../../components/oyh/tabs';
 export default class SingerDetails extends Component {
     constructor(props){
@@ -20,7 +20,10 @@ export default class SingerDetails extends Component {
             active:'',
             hotSongs:'',
             desc:'',
-            list:''
+            album:'',
+            mvs:'',
+            list:'',
+            bool:false
         }
         this.setActive = this.setActive.bind(this)
     }
@@ -31,42 +34,27 @@ export default class SingerDetails extends Component {
                 const list1 = this.renderList(this.state.hotSongs);
                 this.setState({list:list1})
                 break;
-            case 3: 
-                const list2 = this.renderDesc(this.state.desc);
+            case 1: 
+                const list2 = this.renderAlbum(this.state.album);
                 this.setState({list:list2})
+                break;
+            case 2: 
+                const list3 = this.renderMV(this.state.mvs);
+                this.setState({list:list3})
+                break;
+            case 3: 
+                const list4 = this.renderDesc(this.state.desc);
+                this.setState({list:list4})
                 break;
             default:
                 break;
         }
     }
-    renderDesc(data) {
-        return (
-            <div className="SingerList-desc">
-                <p>{this.state.artist.name}简介</p>
-                <p>{data.briefDesc}</p>
-                <p>相关专栏文章</p>
-                {data.topicData.map((item,index)=>{
-                    return (
-                        <ListItem button key={index} style={{padding:'0'}}>
-                           <div className="special">
-                               <img className="pageimg" src={item.rectanglePicUrl} alt="ll"/>
-                                <div>
-                                    <p>{item.mainTitle} </p>
-                                    <p>{'by '+item.creator.nickname+' 阅读 '+item.readCount} </p>
-                                </div>  
-                            </div> 
-                        </ListItem>
-                    )
-                })}
-            </div>
-        )
-    }
+    
     componentWillMount(){
         var id = this.props.match.params.id;
-        console.log(id)
         this.setState({id})
         getArtists(id).then(res=>{
-            console.log(res)
             this.setState({
                 artist: res.artist,
                 hotSongs: res.hotSongs
@@ -74,13 +62,36 @@ export default class SingerDetails extends Component {
         }).then(_=>{
             let list = this.renderList(this.state.hotSongs);
             this.setState({list})
-        }).catch(err=>{
-            console.log(err)
-        })
-        getArtistsDesc(id).then(res=>{
-            console.log(res)
-            this.setState({
-                desc: res
+        }).then(_=>{
+            getArtistsDesc(id).then(res=>{
+                this.setState({
+                    desc: res
+                })
+            }).then(_=>{
+                // 获取歌手专辑
+                getArtistsAlbum({id:id,limit:10}).then(res=>{
+                    res.hotAlbums.map(item=>{
+                        var timer= new Date(item.publishTime);
+                        timer = timer.getFullYear()+'.'+timer.getMonth()+'.'+timer.getDay()+' ';
+                        item.publishTime = timer;
+                    })
+                    this.setState({
+                        album: res.hotAlbums
+                    })
+                }).then(_=>{
+                    getArtistsMV(id).then(res=>{
+                        console.log(res)
+                        this.setState({
+                            mvs: res.mvs
+                        })
+                    }).then(_=>{
+                        setTimeout(_=>{
+                            this.setState({
+                                bool: true
+                            })
+                        },500)
+                    })
+                })
             })
         }).catch(err=>{
             console.log(err)
@@ -107,35 +118,97 @@ export default class SingerDetails extends Component {
             )
         })
     }
-    render(){
-        return (
-                <div className="SingerDetails" style={{backgroundImage: 'linear-gradient(rgba(144,144,144,0.2), rgba(40,40,40, 0.2)),url('+this.state.artist.picUrl+')'}}>
-                    <header className="SingerDetails-header">
-                        <TopBar color={{background:'transparent'}}>
-                            <span className="SingerDetails-header-title">{ this.state.artist.name }</span>
-                        </TopBar>
-                    </header>
-                    <div className="SingerDetails-collect">
-                        <div className="clection">
-                            <Button>
-                                <span>+</span>
-                                <div>收藏</div>
-                            </Button>
+    renderAlbum(data){
+        return data.map((item,index)=>{
+            return (
+                <ListItem button key={index} style={{padding:'0'}}>
+                    <div className="album-items">
+                        <img src={item.picUrl} alt="ll"/>
+                        <div className="album-items-intro">
+                            <span className="">{item.name}</span>
+                            <span className="">{item.publishTime+' 歌曲 '+item.size}</span>
                         </div>
                     </div>
-                    <section className="SingerDetails-section">
-                        <div className="touming"></div>
-                        <article  className="SingerDetails-section-article">
-                            <Tabs
-                              tabName={this.state.tab}
-                              setActive={this.setActive}
-                            />
-                            <div className="SingerDetails-section-article-content">
-                               { this.state.list }
+                </ListItem>
+            )
+        })
+    }
+    renderMV(data){
+        return data.map((item,index)=>{
+            return (
+                <ListItem button key={index} style={{padding:'0'}}>
+                    <div className="album-items">
+                        <img src={item.imgurl} alt="ll" style={{width:'100px'}}/>
+                        <div className="album-items-intro">
+                            <span className="">{item.name}</span>
+                            <span className="">{item.publishTime+' 歌曲 '+item.size}</span>
+                        </div>
+                    </div>
+                </ListItem>
+            )
+        })
+    }
+    renderDesc(data) {
+        return (
+            <div className="SingerList-desc">
+                <p>{this.state.artist.name}简介</p>
+                <p>{data.briefDesc}</p>
+                <p>相关专栏文章</p>
+                {data.topicData.map((item,index)=>{
+                    return (
+                        <ListItem button key={index} style={{padding:'0'}}>
+                           <div className="special">
+                               <img className="pageimg" src={item.rectanglePicUrl} alt="ll"/>
+                                <div>
+                                    <p>{item.mainTitle} </p>
+                                    <p>{'by '+item.creator.nickname+' 阅读 '+item.readCount} </p>
+                                </div>  
+                            </div> 
+                        </ListItem>
+                    )
+                })}
+            </div>
+        )
+    }
+    render(){
+        return (
+            <div>
+                {  this.state.bool &&
+                    <div className="SingerDetails" style={{backgroundImage: 'linear-gradient(rgba(144,144,144,0.2), rgba(40,40,40, 0.2)),url('+this.state.artist.picUrl+')'}}>
+                        <header className="SingerDetails-header">
+                            <TopBar color={{background:'transparent'}}>
+                                <span className="SingerDetails-header-title">{ this.state.artist.name }</span>
+                            </TopBar>
+                        </header>
+                        <div className="SingerDetails-collect">
+                            <div className="clection">
+                                <Button>
+                                    <span>+</span>
+                                    <div>收藏</div>
+                                </Button>
                             </div>
-                        </article>
-                    </section>
-                </div>
+                        </div>
+                        <section className="SingerDetails-section">
+                            <div className="touming"></div>
+                            <article  className="SingerDetails-section-article">
+                                <Tabs
+                                    tabName={this.state.tab}
+                                    setActive={this.setActive}
+                                />
+                                <div className="SingerDetails-section-article-content">
+                                    { this.state.list }
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+                }
+                {
+                    !this.state.bool && 
+                    <div className="loading">
+                        <img src="/assets/loading.gif" alt="ll"/>
+                    </div>
+                }
+            </div>
         )
     }
 } 

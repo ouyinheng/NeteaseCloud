@@ -8,6 +8,7 @@ import App from './App';
     import Music from './pages/admin/music'
     import Recom from './pages/admin/recom'
         import Recommend from './pages/admin/recom/recommend'
+            import SongListDetails from './pages/admin/recom/recommend/songlistDetails'
         import Friend from './pages/admin/recom/friend'
         import Broad from './pages/admin/recom/broad'
 
@@ -46,6 +47,7 @@ export default class IRouter extends Component {
                                 <Route path="/admin/mv" component={Mv}/>
                             </App>
                         }/>
+                        <Route exact={true} path="/details/:id" component={SongListDetails}/>
                         <Route exact={true} path="/search" component={Search}/>
                         <Route exact={true} path="/search/singer"  component={Singer}/>
                         <Route exact={true} path="/search/singer/singerlist/:key/:name"  component={SingerList}/>

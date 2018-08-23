@@ -15,18 +15,21 @@ export default class Leftmunu extends Component {
   render() {
     return (
         <div className="Leftmunu">
-           <header className="Leftmunu-header " style={{backgroundImage:'url('+this.props.userinfo.profile.backgroundUrl+')'}}>
-                <div className="out">
-                    <img className="Leftmunu-header-icon" src={this.props.userinfo.profile.avatarUrl} alt="ll"/>
-                    <div className="between w-100">
-                        <div className="name">
-                            <span>{this.props.userinfo.profile.nickname}</span>
-                            <span className="Lv">Lv.{this.props.userinfo.profile.vipType}</span>
+           {
+               this.props.userinfo &&
+               <header className="Leftmunu-header " style={{backgroundImage:'url('+this.props.userinfo.profile.backgroundUrl+')'}}>
+                    <div className="out">
+                        <img className="Leftmunu-header-icon" src={this.props.userinfo.profile.avatarUrl} alt="ll"/>
+                        <div className="between w-100">
+                            <div className="name">
+                                <span>{this.props.userinfo.profile.nickname}</span>
+                                <span className="Lv">Lv.{this.props.userinfo.profile.vipType}</span>
+                            </div>
+                            <span className="iconfont icon-jifen signin"> 签到</span>
                         </div>
-                        <span className="iconfont icon-jifen signin"> 签到</span>
                     </div>
-                </div>
-           </header>
+                </header>
+           }
            <section className="Leftmunu-section">
                 <div className="Leftmunu-section-card">
                     <ListItem button>

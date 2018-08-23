@@ -9,7 +9,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import TopBar from '../../../components/oyh/topBar';
-import Modal from '../../../components/oyh/modal';
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +52,6 @@ class Search extends Component {
   }
   del(e,index){
     this.state.local.splice(index,1);
-    console.log(index,this.state.local)
     var local = this.state.local;
     this.setState({local})
     localStorage.setItem('search',JSON.stringify(local))
@@ -62,7 +60,6 @@ class Search extends Component {
   }
   componentWillMount(){
     getHot().then(res=>{
-      console.log(res.result);
       if(res.code === 200) {
         const hotNode = this.renderHot(res.result.hots);
         this.setState({
@@ -73,7 +70,6 @@ class Search extends Component {
       console.log(err)
     })
     let local = localStorage.getItem('search');
-    console.log('localhisttory',local)
     if(local){
       local=JSON.parse(local);
       const localNode = this.renderLocal(local);
@@ -81,7 +77,6 @@ class Search extends Component {
     }
   }
   getfocus(){
-    console.log('asdf')
     const border = this.renderInput(true)
     this.setState({border})
   }
@@ -120,7 +115,6 @@ class Search extends Component {
   }
   render() {
     return (
-          <Modal>
             <div className="Search">
                 <form className="search-header" onSubmit={this.submit}>
                   <TopBar>
@@ -150,7 +144,6 @@ class Search extends Component {
                   </List>
                 </section>
             </div>
-          </Modal>
     );
   }
 }
