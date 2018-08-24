@@ -18,7 +18,7 @@ export default class SingerList extends Component {
         this.todetails = this.todetails.bind(this);
     }
     todetails(id){
-        this.props.history.push("/singerdetails/"+id)
+        this.props.history.push("/app/singerdetails/"+id)
     }
     renderListNode(data) {
         return data.map((item,index)=>{

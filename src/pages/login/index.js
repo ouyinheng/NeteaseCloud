@@ -17,7 +17,7 @@ export default class Login extends Component {
                     <Button className="login-btn">
                         注册
                     </Button>
-                    <Link to="/admin/recom/recommend" className="login-link">游客试用</Link>
+                    <Link to="/app/admin/recom/recommend" className="login-link">游客试用</Link>
                 </section>
                 <div style={{textAlign:'center',marginBottom:'10px'}}>其他方式登录</div>
                 <footer className="login-footer">

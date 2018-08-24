@@ -19,7 +19,7 @@ export default class Recommend extends Component {
     this.toDetails = this.toDetails.bind(this);
   }
   toDetails(id){
-    this.props.history.push(`/details/${id}`)
+    this.props.history.push(`/app/details/${id}`)
   }
   renderImgNode(data){
     return data.forEach((item,index)=>{
@@ -53,13 +53,11 @@ export default class Recommend extends Component {
   }
   componentWillMount(){
     privatecontent().then(imglist=>{
-      console.log(imglist)
       this.setState({
         imglist
       })
     }).then(_=>{
       personalized().then(res=>{
-        console.log('songlist',res.result)
         let songlist = this.renderSonglistNode(res.result.slice(0,6));
         this.setState({songlist})
       }).then(_=>{
@@ -74,7 +72,6 @@ export default class Recommend extends Component {
       })
     }).then(_=>{
       djprogram().then(res=>{
-        console.log(res.result.slice(0,5))
         let newdt = this.renderSonglistNode(res.result.slice(0,6));
         this.setState({
           newdt

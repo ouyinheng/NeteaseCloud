@@ -127,7 +127,7 @@ class Search extends Component {
                 </form>
                 <section className="search-section">
                   <ListItem button className="classify border-bottom">
-                      <Link to="/search/singer" className="center">
+                      <Link to="/app/singer" className="center">
                         <span className="iconfont icon-team"></span>
                         <span>歌手分类</span>
                         <span className="iconfont icon-right"></span>

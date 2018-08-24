@@ -53,7 +53,7 @@ export default class Singer extends Component {
     }
     todetail(e,key,name){
         // this.context.router.history.push(`/search/singer/singerlist?key=${key}&name=${name}`)
-        this.props.history.push("/search/singer/singerlist/"+key+"/"+name)
+        this.props.history.push("/app/singerlist/"+key+"/"+name)
     }
     componentDidMount(){
         
