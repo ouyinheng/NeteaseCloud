@@ -74,6 +74,7 @@ export default class SingerDetails extends Component {
                         var timer= new Date(item.publishTime);
                         timer = timer.getFullYear()+'.'+timer.getMonth()+'.'+timer.getDay()+' ';
                         item.publishTime = timer;
+                        return null;
                     })
                     this.setState({
                         album: res.hotAlbums

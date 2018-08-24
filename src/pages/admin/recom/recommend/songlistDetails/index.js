@@ -64,6 +64,9 @@ export default class SongListDetails extends Component {
                 })
             },500)
         }).catch(err=>{
+            this.setState({
+                bool:true
+            })
             console.log(err)
         })
     }

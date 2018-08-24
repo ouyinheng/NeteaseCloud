@@ -10,9 +10,9 @@ export default class Recom extends Component {
       active:0,
       userinfo:'',
       tab:[
-        {key:'/admin/recom/recommend',name:'推荐'},
-        {key:'/admin/recom/friend',name:'朋友'},
-        {key:'/admin/recom/broad',name:'电台'}
+        {key:'/app/admin/recom/recommend',name:'推荐'},
+        {key:'/app/admin/recom/friend',name:'朋友'},
+        {key:'/app/admin/recom/broad',name:'电台'}
       ]
     };
     this.setActive = this.setActive.bind(this)
@@ -26,7 +26,6 @@ export default class Recom extends Component {
     var userinfo = localStorage.getItem('token');
     if(userinfo) {
       userinfo = JSON.parse(userinfo);
-      console.log(userinfo)
     }
   }
   render() {
@@ -34,13 +33,13 @@ export default class Recom extends Component {
         <div className="recom">
             <header className="recom-nav-group">
               <ListItem button onClick={(e)=>{this.setActive(e,0)}} style={{padding:'0'}}>
-                <Link to="/admin/recom/recommend" className={this.state.active===0?'recom-nav-item active':'recom-nav-item'}>推荐</Link>
+                <Link to="/app/admin/recom/recommend" className={this.state.active===0?'recom-nav-item active':'recom-nav-item'}>推荐</Link>
               </ListItem>
               <ListItem button onClick={(e)=>{this.setActive(e,1)}} style={{padding:'0'}}>
-                <Link to="/admin/recom/friend" className={this.state.active===1?'recom-nav-item active':'recom-nav-item'}>朋友</Link>
+                <Link to="/app/admin/recom/friend" className={this.state.active===1?'recom-nav-item active':'recom-nav-item'}>朋友</Link>
               </ListItem>
               <ListItem button onClick={(e)=>{this.setActive(e,2)}} style={{padding:'0'}}>
-                <Link to="/admin/recom/broad" className={this.state.active===2?'recom-nav-item active':'recom-nav-item'}>推荐</Link>
+                <Link to="/app/admin/recom/broad" className={this.state.active===2?'recom-nav-item active':'recom-nav-item'}>推荐</Link>
               </ListItem>
             </header>
             <section className="recom-section">

@@ -5,6 +5,7 @@ import Login from './pages/login';
     import Email from './pages/login/email';
 // 主页
 import App from './App';
+import Admin from './admin';
     import Music from './pages/admin/music'
     import Recom from './pages/admin/recom'
         import Recommend from './pages/admin/recom/recommend'
@@ -34,25 +35,28 @@ export default class IRouter extends Component {
                     <Switch>
                         <Route exact={true} path="/" component={Login}/>
                         <Route path="/email" component={Email}/>
-                        <Route path="/admin" render={()=>
+                        <Route path="/app" render={()=>
                             <App>
-                                <Route path="/admin/music" component={Music}/>
-                                <Route path="/admin/recom" render={()=>
-                                    <Recom>
-                                        <Route path="/admin/recom/recommend" component={Recommend}/>
-                                        <Route path="/admin/recom/friend" component={Friend}/>
-                                        <Route path="/admin/recom/broad" component={Broad}/>
-                                    </Recom>
+                                <Route path="/app/admin" render={()=>
+                                    <Admin>
+                                        <Route path="/app/admin/music" component={Music}/>
+                                        <Route path="/app/admin/recom" render={()=>
+                                            <Recom>
+                                                <Route path="/app/admin/recom/recommend" component={Recommend}/>
+                                                <Route path="/app/admin/recom/friend" component={Friend}/>
+                                                <Route path="/app/admin/recom/broad" component={Broad}/>
+                                            </Recom>
+                                        }/>
+                                        <Route path="/app/admin/mv" component={Mv}/>
+                                    </Admin>
                                 }/>
-                                <Route path="/admin/mv" component={Mv}/>
+                                <Route path="/app/search" component={Search}/>
+                                <Route path="/app/details/:id" component={SongListDetails}/>
+                                <Route path="/app/singer"  component={Singer}/>
+                                <Route path="/app/singerlist/:key/:name"  component={SingerList}/>
+                                <Route path="/app/singerdetails/:id"  component={SingerDetails}/>
                             </App>
                         }/>
-                        <Route exact={true} path="/details/:id" component={SongListDetails}/>
-                        <Route exact={true} path="/search" component={Search}/>
-                        <Route exact={true} path="/search/singer"  component={Singer}/>
-                        <Route exact={true} path="/search/singer/singerlist/:key/:name"  component={SingerList}/>
-                        <Route exact={true} path="/singerdetails/:id"  component={SingerDetails}/>
-
                     </Switch>
                 </div>
             </BrowserRouter >
