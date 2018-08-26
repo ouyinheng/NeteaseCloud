@@ -1,6 +1,6 @@
 @import '../../../../common/css/color.scss';
 .Recommend {
-    .Recommend-header {
+    &-header {
         position: relative;
         .Recommend-red {
             width: 100%;
@@ -50,9 +50,9 @@
             }
         }
         .recom-song-list {
-            padding: 20px 10px;
+            padding: 10px;
             &-title {
-                font-size: 20px;
+                font-size: 0.8rem;
             }
             .list-group {
                 width: 100%;
@@ -67,8 +67,11 @@
                     flex-direction: column;
                     align-items: center;
                     .list-img {
+                        display: block;
                         width: 100%;
-                        border-radius: 5px;
+                        box-sizing: border-box;
+                        padding: 10px 5px;
+                        border-radius: 20px;
                     }
                 }
             }

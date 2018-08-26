@@ -59,37 +59,38 @@ export default class Recommend extends Component {
       })
     }).then(_=>{
       personalized().then(res=>{
-        let songlist = this.renderSonglistNode(res.result);
+        let songlist = this.renderSonglistNode(res.result.slice(0,6));
         this.state.isMounted && this.setState({songlist})
-        this.state.isMounted && this.setState({
-                bool: true
-        })
       }).then(_=>{
-        // newsong().then(res=>{
-        //   console.log('asdf',res)
-        //   let newsongs = this.renderNewSongsNode(res.result.slice(0,6));
-        //   this.state.isMounted && this.setState({
-        //     newsongs
-        //   })
-        // }).catch(err=>{
-        //   console.log('asdf',err)
-        // })
+        newsong().then(res=>{
+          console.log('asdf',res)
+          let newsongs = this.renderNewSongsNode(res.result.slice(0,6));
+          this.state.isMounted && this.setState({
+            newsongs
+          })
+        }).catch(err=>{
+          console.log('asdf',err)
+          this.state.isMounted && this.setState({
+            bool: true
+          })
+        })
       })
     }).then(_=>{
-      // djprogram().then(res=>{
-      //   let newdt = this.renderSonglistNode(res.result.slice(0,6));
-      //   this.state.isMounted && this.setState({
-      //     newdt
-      //   })
-      // }).then(_=>{
-      //   setTimeout(_=>{
-      //     this.state.isMounted && this.setState({
-      //       bool: true
-      //     })
-      //   },500)
-      // })
+      djprogram().then(res=>{
+        let newdt = this.renderSonglistNode(res.result.slice(0,6));
+        this.state.isMounted && this.setState({
+          newdt
+        })
+      }).then(_=>{
+        this.state.isMounted && this.setState({
+          bool: true
+        })
+      })
     }).catch(err=>{
       console.log(err)
+      this.state.isMounted && this.setState({
+        bool: true
+      })
     })
   }
   toFMPlay(){
@@ -137,7 +138,7 @@ export default class Recommend extends Component {
                         <span className="iconfont icon-paihangbang classify-btn"></span>
                         <div className="item-content">排行榜</div>
                     </div>
-                  </div>
+                  </div> 
                     <div className="recom-song-list">
                       <ListItem button>
                         <p className="recom-song-list-title">推荐歌单<span className="iconfont icon-right"></span></p>
@@ -145,7 +146,7 @@ export default class Recommend extends Component {
                       <div className="list-group">
                         { this.state.songlist }
                       </div>
-                      {/* <ListItem button>
+                      <ListItem button>
                         <p className="recom-song-list-title">最新音乐<span className="iconfont icon-right"></span></p>
                       </ListItem>
                       <div className="list-group">
@@ -153,7 +154,7 @@ export default class Recommend extends Component {
                       </div>
                       <ListItem button>
                         <p className="recom-song-list-title">主播电台<span className="iconfont icon-right"></span></p>
-                      </ListItem> */}
+                      </ListItem>
                       <div className="list-group">
                         { this.state.newdt }
                       </div>

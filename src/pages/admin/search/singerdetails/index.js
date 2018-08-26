@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import './index.scss';  
 import TopBar from '../../../../components/oyh/topBar';
-import Button from '@material-ui/core/Button';
 import ListItem from '@material-ui/core/ListItem';
 import { getArtists, getArtistsDesc, getArtistsAlbum, getArtistsMV } from '../../../../request/http.request';
 import Tabs from '../../../../components/oyh/tabs';
@@ -189,10 +188,12 @@ class SingerDetails extends Component {
                         </header>
                         <div className="SingerDetails-collect">
                             <div className="clection">
-                                <Button>
-                                    <span>+</span>
-                                    <div>收藏</div>
-                                </Button>
+                                <div>
+                                    <ListItem button style={{padding:'3px 0'}}>
+                                        <span>+</span>
+                                        <div>收藏</div>
+                                    </ListItem>
+                                </div>
                             </div>
                         </div>
                         <section className="SingerDetails-section">

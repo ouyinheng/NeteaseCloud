@@ -1,7 +1,7 @@
 .Leftmunu {
-    min-width: 350px;
+    min-width: 300px;
     background-color:#F2F0EF;
-    width: 80%;
+    width: 70%;
     overflow-x: hidden;
     &-header {
         width: 100%;
@@ -47,10 +47,10 @@
             margin-bottom: 20px;
             color: gray;
             &-icon {
-                font-size: 20px;
+                font-size: 1rem;
             }
             &-title {
-                font-size: 16px;
+                font-size: 0.8rem;
                 padding-left: 10px;
             }
         }
@@ -64,8 +64,12 @@
         left: 0;
         z-index: 10;
         background-color: white;
+        overflow: hidden;
         .icon {
-            font-size: 20px;
+            font-size: 0.8rem;
+        }
+        span {
+            font-size: 0.6rem;
         }
     }
 }

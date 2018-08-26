@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-            <div>
+            <div style={{marginBottom:'80px'}}>
               { this.props.children }
             </div>
             <Link className="app-footer border-top" to="/app/musicdetails" >

@@ -6,8 +6,6 @@ import OInput from '../../../components/oyh/input';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Button from '@material-ui/core/Button';
 import TopBar from '../../../components/oyh/topBar';
 class Search extends Component {
   constructor(props) {
@@ -88,20 +86,22 @@ class Search extends Component {
   renderHot(data){
     return data.map((item,index)=>{
       return (
-        <Button variant="outlined" className="hot-tips" key={index}>
-          {item.first}
-        </Button>
+        <div variant="outlined" className="hot-tips" key={index}>
+          <ListItem button style={{padding:'0'}}>{item.first}</ListItem>
+        </div>
       )
     })
   }
   renderLocal(data){
     return data.map((item,index)=>{
       return ( 
-          <ListItem button className="list-item flex -center border-bottom" key={index}>
-            <span className="iconfont icon-time font-gray"></span>
-            <ListItemText primary={item}/>
-            <div style={{fontSize:'14px'}} className="iconfont icon-guanbi font-gray" onClick={(e)=>{this.del(e,index)}}></div>
-          </ListItem>
+          <div className="list-item w-100 between border-bottom" key={index}>
+            <ListItem button>
+              <span className="iconfont icon-time font-gray"></span>
+              <div style={{fontSize:'0.8rem',padding: '0 10px'}}>{item}</div>
+            </ListItem>
+            <div style={{fontSize:'0.6rem'}} className="iconfont icon-guanbi font-gray" onClick={(e)=>{this.del(e,index)}}></div>
+          </div>
       )
     })
   }
