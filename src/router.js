@@ -20,6 +20,7 @@ import Admin from './admin';
         import SingerList from './pages/admin/search/singerlist'
         import SingerDetails from './pages/admin/search/singerdetails'
 
+import Details from './pages/admin/details'
 
 
 import Util from './utils/utils'
@@ -52,9 +53,10 @@ export default class IRouter extends Component {
                                 }/>
                                 <Route path="/app/search" component={Search}/>
                                 <Route path="/app/details/:id" component={SongListDetails}/>
-                                <Route path="/app/singer"  component={Singer}/>
-                                <Route path="/app/singerlist/:key/:name"  component={SingerList}/>
-                                <Route path="/app/singerdetails/:id"  component={SingerDetails}/>
+                                <Route path="/app/singer" component={Singer}/>
+                                <Route path="/app/singerlist/:key/:name" component={SingerList}/>
+                                <Route path="/app/singerdetails/:id" component={SingerDetails}/>
+                                <Route path="/app/musicdetails" component={Details}/>
                             </App>
                         }/>
                     </Switch>

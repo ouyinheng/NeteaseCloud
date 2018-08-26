@@ -30,7 +30,7 @@ export default class Email extends Component {
             if(res.code=== 200){
                 localStorage.setItem('token',JSON.stringify(res));
                 // window.history.push('/admin')
-                this.context.router.history.push('/admin/recom/recommend')
+                this.context.router.history.push('/app/admin/recom/recommend')
             }
         }).catch(err=>{
             console.log(err)

@@ -3,7 +3,9 @@ import './index.scss';
 import { playlistdetail } from '../../../../../request/http.request'
 import TopBar from '../../../../../components/oyh/topBar'
 import ListItem from '@material-ui/core/ListItem';
-export default class SongListDetails extends Component {
+import { connect } from 'react-redux';
+import { switchSRC } from '../../../../../redux/action'
+class SongListDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -13,6 +15,7 @@ export default class SongListDetails extends Component {
             title:'歌单',
             bool:false
         }
+        this.setSrc = this.setSrc.bind(this);
     }
 
     getData(id){
@@ -28,10 +31,14 @@ export default class SongListDetails extends Component {
             console.log(err)
         })
     }
+    setSrc(src,anthor,name){
+        const { dispatch } = this.props;
+        dispatch(switchSRC(src,anthor,name)) 
+    }
     renderList(data){
         return data.map((item,index)=>{
             return (
-                <ListItem button key={index} style={{padding: '0'}}>
+                <ListItem button key={index} style={{padding: '0'}} onClick={(e)=>{this.setSrc(item.id,item.ar[0].name,item.name)}}>
                     <div className="flex w-100 outlist">
                         <div style={{padding: '0 10px'}}>{index}</div>
                         <div className="between w-100 left border-bottom">
@@ -107,3 +114,5 @@ export default class SongListDetails extends Component {
         )
     }
  }
+
+ export default connect()(SongListDetails)

@@ -1,7 +1,15 @@
 import axios from 'axios';
 // const base = 'http://192.168.1.236:3001'
-const base = 'http://192.168.70.1:3001'
+// const base = 'http://192.168.70.1:3001'
+const base = 'http://118.25.95.147:3001'
+// 获取src
+export const geturl = params => {return axios.get(`${base}/music/url?id=${params}`).then(res =>res.data);}
+// 歌曲详情
+export const getdetail = params => {return axios.get(`${base}/song/detail?ids=${params}`).then(res =>res.data);}
+// 获取歌词
+export const getlyric = params => {return axios.get(`${base}/lyric?id=${params}`).then(res =>res.data);}
 
+export const getmurl = params => {return axios.get(`${base}/search?keywords=${params}`).then(res =>res.data);}
 export const toSearch = params => {return axios.get(`${base}/search?keywords=${params}`).then(res =>res.data);}
 export const getHot = () => {return axios.get(`${base}/search/hot`).then(res =>res.data);}
 export const toLogin = params => {return axios.get(`${base}/login?email=${params.username}&password=${params.pwd}`).then(res =>res.data);}

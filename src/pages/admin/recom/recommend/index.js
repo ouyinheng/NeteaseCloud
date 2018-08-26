@@ -13,7 +13,8 @@ export default class Recommend extends Component {
       songlist:'',
       newsongs:'',
       newdt:'',
-      bool:false
+      bool:false,
+      isMounted:true
     }
     this.toFMPlay = this.toFMPlay.bind(this);
     this.toDetails = this.toDetails.bind(this);
@@ -51,44 +52,45 @@ export default class Recommend extends Component {
       )
     })
   }
-  componentWillMount(){
+  componentDidMount(){
     privatecontent().then(imglist=>{
-      this.setState({
+      this.state.isMounted && this.setState({
         imglist
       })
     }).then(_=>{
       personalized().then(res=>{
-        let songlist = this.renderSonglistNode(res.result.slice(0,6));
-        this.setState({songlist})
-      }).then(_=>{
-        newsong().then(res=>{
-          let newsongs = this.renderNewSongsNode(res.result.slice(0,6));
-          this.setState({
-            newsongs
-          })
-        }).then(_=>{
-
+        let songlist = this.renderSonglistNode(res.result);
+        this.state.isMounted && this.setState({songlist})
+        this.state.isMounted && this.setState({
+                bool: true
         })
+      }).then(_=>{
+        // newsong().then(res=>{
+        //   console.log('asdf',res)
+        //   let newsongs = this.renderNewSongsNode(res.result.slice(0,6));
+        //   this.state.isMounted && this.setState({
+        //     newsongs
+        //   })
+        // }).catch(err=>{
+        //   console.log('asdf',err)
+        // })
       })
     }).then(_=>{
-      djprogram().then(res=>{
-        let newdt = this.renderSonglistNode(res.result.slice(0,6));
-        this.setState({
-          newdt
-        })
-      }).then(_=>{
-        setTimeout(_=>{
-          this.setState({
-            bool: true
-          })
-        },500)
-      })
+      // djprogram().then(res=>{
+      //   let newdt = this.renderSonglistNode(res.result.slice(0,6));
+      //   this.state.isMounted && this.setState({
+      //     newdt
+      //   })
+      // }).then(_=>{
+      //   setTimeout(_=>{
+      //     this.state.isMounted && this.setState({
+      //       bool: true
+      //     })
+      //   },500)
+      // })
     }).catch(err=>{
       console.log(err)
     })
-    
-    
-    
   }
   toFMPlay(){
     console.log('asdf')
@@ -97,6 +99,10 @@ export default class Recommend extends Component {
     }).catch(err=>{
       console.log(err)
     })
+  }
+  componentWillUnmount(){
+    let isMounted = false;
+    this.setState({isMounted})
   }
   render() {
     return (
@@ -139,7 +145,7 @@ export default class Recommend extends Component {
                       <div className="list-group">
                         { this.state.songlist }
                       </div>
-                      <ListItem button>
+                      {/* <ListItem button>
                         <p className="recom-song-list-title">最新音乐<span className="iconfont icon-right"></span></p>
                       </ListItem>
                       <div className="list-group">
@@ -147,7 +153,7 @@ export default class Recommend extends Component {
                       </div>
                       <ListItem button>
                         <p className="recom-song-list-title">主播电台<span className="iconfont icon-right"></span></p>
-                      </ListItem>
+                      </ListItem> */}
                       <div className="list-group">
                         { this.state.newdt }
                       </div>

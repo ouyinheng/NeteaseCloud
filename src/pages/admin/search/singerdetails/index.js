@@ -5,7 +5,9 @@ import Button from '@material-ui/core/Button';
 import ListItem from '@material-ui/core/ListItem';
 import { getArtists, getArtistsDesc, getArtistsAlbum, getArtistsMV } from '../../../../request/http.request';
 import Tabs from '../../../../components/oyh/tabs';
-export default class SingerDetails extends Component {
+import { connect } from 'react-redux'
+import { switchSRC } from '../../../../redux/action'
+class SingerDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -26,6 +28,7 @@ export default class SingerDetails extends Component {
             bool:false
         }
         this.setActive = this.setActive.bind(this)
+        this.setSrc = this.setSrc.bind(this);
     }
     setActive(active){
         this.setState({active})
@@ -50,7 +53,10 @@ export default class SingerDetails extends Component {
                 break;
         }
     }
-    
+    setSrc(params,author,name) {
+        const { dispatch } = this.props;
+        dispatch(switchSRC(params,author,name))
+    }
     componentDidMount(){
         var id = this.props.match.params.id;
         this.setState({id})
@@ -101,13 +107,13 @@ export default class SingerDetails extends Component {
     renderList(data){
         return data.map((item,index)=>{
             return (
-                <ListItem button key={index} style={{padding: '0'}}>
+                <ListItem button key={index} style={{padding: '0'}} onClick={(e)=>{this.setSrc(item.id,item.name,item.ar[0].name)}}>
                     <div className="list-item">
                         <div style={{color:'gray',fontSize:'20px',padding:'0 10px'}}>{index}</div>
                         <div className="list-item-content border-bottom">
                             <div className="list-item-content-left">
                                 <span>{item.name}</span>
-                                <span>{item.name+' - '+item.al.name}</span>
+                                <span>{item.ar[0].name+' - '+item.al.name}</span>
                             </div>
                             <div className="list-item-content-right">
                                 <span className="iconfont icon-MV-"></span>
@@ -213,3 +219,4 @@ export default class SingerDetails extends Component {
         )
     }
 } 
+export default connect()(SingerDetails);

@@ -36,21 +36,35 @@ class Music extends Component {
             </header>
             <section className="music-section">
               <List component="nav">
-                <ListItem button className="list-item flex -center border-bottom">
-                  <span className="list-icon iconfont icon-yinyueclick"></span>
-                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                <ListItem button className="list-item flex -center" style={{padding:'0'}}>
+                  <span className="list-icon iconfont icon-yinyueclick font-4x"></span>
+                  <div className="w-100 pt-4 pb-4 border-bottom">
+                    <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                  </div>
                 </ListItem>
-                <ListItem button className="list-item flex -center border-bottom">
-                  <span className="list-icon iconfont icon-yinyueclick"></span>
-                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                <ListItem button className="list-item flex -center" style={{padding:'0'}}>
+                  <span className="list-icon iconfont icon-bofang font-4x"></span>
+                  <div className="w-100 pt-4 pb-4 border-bottom">
+                    <ListItemText primary={'最近播放('+this.state.num+')' }/>
+                  </div>
                 </ListItem>
-                <ListItem button className="list-item flex -center border-bottom">
-                  <span className="list-icon iconfont icon-yinyueclick"></span>
-                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                <ListItem button className="list-item flex -center" style={{padding:'0'}}>
+                  <span className="list-icon iconfont icon-xiazai font-4x"></span>
+                  <div className="w-100 pt-4 pb-4 border-bottom">
+                    <ListItemText primary={'下载管理('+this.state.num+')' }/>
+                  </div>
                 </ListItem>
-                <ListItem button className="list-item flex -center">
-                  <span className="list-icon iconfont icon-yinyueclick"></span>
-                  <ListItemText primary={'本地音乐('+this.state.num+')' }/>
+                <ListItem button className="list-item flex -center" style={{padding:'0'}}>
+                  <span className="list-icon iconfont icon-diantai font-4x"></span>
+                  <div className="w-100 pt-4 pb-4 border-bottom">
+                    <ListItemText primary={'我的电台('+this.state.num+')' }/>
+                  </div>
+                </ListItem>
+                <ListItem button className="list-item flex -center" style={{padding:'0'}}>
+                  <span className="list-icon iconfont icon-wodeshoucang font-4x"></span>
+                  <div className="w-100 pt-4 pb-4 border-bottom">
+                    <span>我的收藏(<span className="font-sm font-md">专辑/歌手/视频/专栏</span>)</span>
+                  </div>
                 </ListItem>
                 {/* <ListItem button component="a" href="#simple-list">
                   <ListItemText primary="Spam" />

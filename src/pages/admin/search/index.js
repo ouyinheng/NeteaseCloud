@@ -43,6 +43,7 @@ class Search extends Component {
       arr.push(...JSON.parse(svalue));
     }
     arr.push(value)
+    arr = Array.from(new Set(arr))
     localStorage.setItem(`search`, JSON.stringify(arr));
     toSearch(value).then(res=>{
       console.log(res)

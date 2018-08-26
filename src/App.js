@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import { Link } from 'react-router-dom';
 import Footer from './components/footer'
 class App extends Component {
   constructor(props) {
@@ -7,14 +8,15 @@ class App extends Component {
     this.state = {
     };
   }
-
   render() {
     return (
         <div className="App">
-            { this.props.children }
-            <div className="app-footer border-top">
-                    <Footer/>
+            <div>
+              { this.props.children }
             </div>
+            <Link className="app-footer border-top" to="/app/musicdetails" >
+                <Footer/>
+            </Link>
             
         </div>
     );

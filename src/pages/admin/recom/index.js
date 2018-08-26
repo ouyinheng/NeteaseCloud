@@ -13,7 +13,8 @@ export default class Recom extends Component {
         {key:'/app/admin/recom/recommend',name:'推荐'},
         {key:'/app/admin/recom/friend',name:'朋友'},
         {key:'/app/admin/recom/broad',name:'电台'}
-      ]
+      ],
+      isMounted:true
     };
     this.setActive = this.setActive.bind(this)
   }
@@ -27,6 +28,10 @@ export default class Recom extends Component {
     if(userinfo) {
       userinfo = JSON.parse(userinfo);
     }
+  }
+  componentWillUnmount(){
+    let isMounted = false;
+    this.setState({isMounted})
   }
   render() {
     return (
