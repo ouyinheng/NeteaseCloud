@@ -1,0 +1,14 @@
+.out {
+  width: 100%;
+  height: 100vh;
+  background: pink;
+  padding-top: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  .scroll {
+    width: 100%;
+    height: 2000px;
+    background-color: lightgreen;
+  }
+}

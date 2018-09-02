@@ -64,7 +64,9 @@ export default class Email extends Component {
                         </div>
                         <div className="email-input">
                             <span className="iconfont icon-suo email-icon"></span>
-                            <OInput tochange={this.getPwd}/>
+                            <OInput 
+                                tochange={this.getPwd}
+                                type="password"/>
                         </div>
                         <div className="email-submit"></div>
                     </section>

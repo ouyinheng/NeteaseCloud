@@ -28,6 +28,7 @@ class SingerDetails extends Component {
         }
         this.setActive = this.setActive.bind(this)
         this.setSrc = this.setSrc.bind(this);
+        this.getScroll = this.getScroll.bind(this);
     }
     setActive(active){
         this.setState({active})
@@ -55,6 +56,11 @@ class SingerDetails extends Component {
     setSrc(params,author,name) {
         const { dispatch } = this.props;
         dispatch(switchSRC(params,author,name))
+    }
+    getScroll(e){
+        let out = this.refs.out.scrollTop;
+        let scroll = this.refs.scroll.offsetTop;
+        console.log(out)
     }
     componentDidMount(){
         var id = this.props.match.params.id;
@@ -180,7 +186,11 @@ class SingerDetails extends Component {
         return (
             <div>
                 {  this.state.bool &&
-                    <div className="SingerDetails" style={{backgroundImage: 'linear-gradient(rgba(144,144,144,0.2), rgba(40,40,40, 0.2)),url('+this.state.artist.picUrl+')'}}>
+                    <div 
+                        className="SingerDetails" 
+                        ref="out" 
+                        onScroll={(e)=>{this.getScroll(e)}} 
+                        style={{backgroundImage: 'linear-gradient(rgba(144,144,144,0.2), rgba(40,40,40, 0.2)),url('+this.state.artist.picUrl+')'}}>
                         <header className="SingerDetails-header">
                             <TopBar color={{background:'transparent'}}>
                                 <span className="SingerDetails-header-title">{ this.state.artist.name }</span>
@@ -196,7 +206,7 @@ class SingerDetails extends Component {
                                 </div>
                             </div>
                         </div>
-                        <section className="SingerDetails-section">
+                        <section className="SingerDetails-section" ref="scroll">
                             <div className="touming"></div>
                             <article  className="SingerDetails-section-article">
                                 <Tabs

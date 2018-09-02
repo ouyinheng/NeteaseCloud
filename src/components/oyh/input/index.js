@@ -43,6 +43,7 @@ export default class OInput extends Component {
                     onChange={this.tochange} 
                     value={this.state.inputValue}
                     placeholder="啦啦啦"
+                    type={this.props.type}
                 />
                 { this.state.borderBottom }
             </div>

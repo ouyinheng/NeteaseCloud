@@ -1,7 +1,7 @@
 import axios from 'axios';
 // const base = 'http://192.168.1.236:3001'
-const base = 'http://192.168.70.1:3001'
-// const base = 'http://118.25.95.147:3001'
+// const base = 'http://192.168.70.1:3001'
+const base = 'http://118.25.95.147:3001'
 // 获取src
 export const geturl = params => {return axios.get(`${base}/music/url?id=${params}`).then(res =>res.data);}
 // 歌曲详情

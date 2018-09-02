@@ -21,19 +21,10 @@ export default class Login extends Component {
                 </section>
                 <div style={{textAlign:'center',marginBottom:'10px'}}>其他方式登录</div>
                 <footer className="login-footer">
-                    {/* <span className="iconfont icon-weixin"></span> */}
-                    <Button variant="fab">
-                        <span className="iconfont icon-weixin"></span>
-                    </Button>
-                    <Button variant="fab">
-                        <span className="iconfont icon-QQ"></span>
-                    </Button>
-                    <Button variant="fab">
-                        <span className="iconfont icon-weibo"></span>
-                    </Button>
-                    <Button variant="fab">
-                        <Link to="/email" className="iconfont icon-wangyi"></Link>
-                    </Button>
+                    <Link to="/email" ><span className="iconfont icon-weixin"></span></Link>
+                    <Link to="/email" ><span className="iconfont icon-QQ"></span></Link>
+                    <Link to="/email" ><span className="iconfont icon-weibo"></span></Link>
+                    <Link to="/email" ><span className="iconfont icon-wangyi"></span></Link>
                 </footer>
             </div>
         )

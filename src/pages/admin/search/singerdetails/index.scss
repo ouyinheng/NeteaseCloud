@@ -1,6 +1,8 @@
 @import '../../../../common/css/color.scss';
 .SingerDetails {
     width: 100%;
+    height: calc(89vh);
+    overflow-y: auto;
     position: relative;
     background-repeat: no-repeat;
     background-size: 100% 40%;
