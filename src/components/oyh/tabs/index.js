@@ -16,6 +16,7 @@ export default class Tabs extends Component {
     setActive(active){
         let tablabel = this.renderTab(this.state.tabName,active);
         this.setState({tablabel});
+        console.log(this.refs.tab)
         this.props.setActive(active)
     }
     renderTab(data,active){

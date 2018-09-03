@@ -21,6 +21,7 @@ import Admin from './admin';
         import SingerDetails from './pages/admin/search/singerdetails'
 
 import Details from './pages/admin/details'
+import Test from './pages/test'
 
 
 import Util from './utils/utils'
@@ -36,6 +37,7 @@ export default class IRouter extends Component {
                     <Switch>
                         <Route exact={true} path="/" component={Login}/>
                         <Route path="/email" component={Email}/>
+                        <Route path="/test" component={Test}/>
                         <Route path="/app" render={()=>
                             <App>
                                 <Route path="/app/admin" render={()=>
