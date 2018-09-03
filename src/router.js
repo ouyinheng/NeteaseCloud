@@ -21,7 +21,6 @@ import Admin from './admin';
         import SingerDetails from './pages/admin/search/singerdetails'
 
 import Details from './pages/admin/details'
-import Scroll from './pages/login/scroll'
 
 
 import Util from './utils/utils'

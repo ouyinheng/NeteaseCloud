@@ -24,7 +24,10 @@ class SingerDetails extends Component {
             album:'',
             mvs:'',
             list:'',
-            bool:false
+            bool:false,
+            opacity: 1,
+            domClass:'SingerDetails-section',
+            outdom: 'SingerDetails'
         }
         this.setActive = this.setActive.bind(this)
         this.setSrc = this.setSrc.bind(this);
@@ -59,8 +62,22 @@ class SingerDetails extends Component {
     }
     getScroll(e){
         let out = this.refs.out.scrollTop;
-        let scroll = this.refs.scroll.offsetTop;
-        console.log(out)
+        let opacity = 1-out/220;
+        if(opacity<0) opacity=0;
+        if(out >= 200){
+            this.setState({
+                domClass: 'domFixed',
+                opacity: 0,
+                outdom: 'outdom'
+            })
+            this.refs.out.scrollTop = 200;
+        } else {
+            this.setState({
+                domClass: 'SingerDetails-section',
+                outdom: 'SingerDetails',
+                opacity
+            })
+        }
     }
     componentDidMount(){
         var id = this.props.match.params.id;
@@ -187,17 +204,24 @@ class SingerDetails extends Component {
             <div>
                 {  this.state.bool &&
                     <div 
-                        className="SingerDetails" 
+                        className={this.state.outdom} 
                         ref="out" 
                         onScroll={(e)=>{this.getScroll(e)}} 
                         style={{backgroundImage: 'linear-gradient(rgba(144,144,144,0.2), rgba(40,40,40, 0.2)),url('+this.state.artist.picUrl+')'}}>
                         <header className="SingerDetails-header">
                             <TopBar color={{background:'transparent'}}>
-                                <span className="SingerDetails-header-title">{ this.state.artist.name }</span>
+                                <div className="between w-100">
+                                    <span className="SingerDetails-header-title">{ this.state.artist.name }</span>
+                                    {   this.state.opacity===0 && 
+                                        <div className="sc-header">
+                                            +收藏
+                                        </div>
+                                    }
+                                </div>
                             </TopBar>
                         </header>
                         <div className="SingerDetails-collect">
-                            <div className="clection">
+                            <div className="clection" style={{opacity:this.state.opacity}}>
                                 <div>
                                     <ListItem button style={{padding:'3px 0'}}>
                                         <span>+</span>
@@ -206,13 +230,14 @@ class SingerDetails extends Component {
                                 </div>
                             </div>
                         </div>
-                        <section className="SingerDetails-section" ref="scroll">
-                            <div className="touming"></div>
+                        <section className={this.state.domClass} ref="scroll">
                             <article  className="SingerDetails-section-article">
-                                <Tabs
-                                    tabName={this.state.tab}
-                                    setActive={this.setActive}
-                                />
+                                <div className="Tabs">
+                                    <Tabs
+                                        tabName={this.state.tab}
+                                        setActive={this.setActive}
+                                    />
+                                </div>
                                 <div className="SingerDetails-section-article-content">
                                     { this.state.list }
                                 </div>

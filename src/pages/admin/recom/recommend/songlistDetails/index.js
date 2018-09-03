@@ -13,9 +13,11 @@ class SongListDetails extends Component {
             list:'',
             nodeData:'',
             title:'歌单',
-            bool:false
+            bool:false,
+            colors:' rgba(114,114,144,0)'
         }
         this.setSrc = this.setSrc.bind(this);
+        this.onScroll = this.onScroll.bind(this);
     }
 
     getData(id){
@@ -34,6 +36,19 @@ class SongListDetails extends Component {
     setSrc(src,anthor,name){
         const { dispatch } = this.props;
         dispatch(switchSRC(src,anthor,name)) 
+    }
+    onScroll(){
+        // opacity=0;
+        let out = this.refs.out.scrollTop;
+        let colors = '';
+        if(out >= 290){
+           colors = 'rgba(114,114,144,1)'
+        } else {
+           colors = `rgba(114,114,144,${(out/250)})`
+        }
+        this.setState({
+            colors
+        })
     }
     renderList(data){
         return data.map((item,index)=>{
@@ -82,9 +97,9 @@ class SongListDetails extends Component {
             <div>
                 {
                     this.state.bool && 
-                    <div className="songlistDetails">
+                    <div className="songlistDetails" ref="out" onScroll={this.onScroll} style={{marginBottom: '80px'}}>
                         <header className="songlistDetails-header">
-                            <TopBar color={{background:'transparent'}}>
+                            <TopBar color={{background:this.state.colors}}>
                                 <span className="songlistDetails-header-title">{this.state.title}</span>
                             </TopBar>
                         </header>

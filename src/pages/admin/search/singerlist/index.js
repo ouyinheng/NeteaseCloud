@@ -53,7 +53,7 @@ export default class SingerList extends Component {
             <div>
                 {
                     this.state.bool && 
-                    <div className="SingerList">
+                    <div className="SingerList" style={{marginBottom: '80px'}}>
                         <header className="SingerList-header">
                             <TopBar>
                                 <span className="SingerList-header-title">{ this.state.match.name }-热门歌手</span>

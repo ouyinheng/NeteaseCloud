@@ -1,5 +1,11 @@
 .songlistDetails {
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    overflow-y: auto;
     &-header {
         width: 100%;
         position: fixed;

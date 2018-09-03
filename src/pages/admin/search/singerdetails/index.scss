@@ -1,7 +1,7 @@
 @import '../../../../common/css/color.scss';
 .SingerDetails {
     width: 100%;
-    height: calc(89vh);
+    height: calc(100vh);
     overflow-y: auto;
     position: relative;
     background-repeat: no-repeat;
@@ -14,11 +14,24 @@
         left: 0;
         top: 0;
         z-index: 10;
+        box-sizing: border-box;
+        padding-right: 20px;
         &-title {
             color: white;
             font-size: 0.8rem;
         }
-        
+        .sc-header{
+            width: 60px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            font-size: 0.7rem;
+            background-color: $colors-p;
+            border-radius: 20px;
+            padding: 4px 0;
+        }
     }
     &-collect {
         width: 100px;
@@ -46,6 +59,7 @@
     }
     &-section {
         width: 100%;
+        margin-top: 260px;
         .touming {
             width: 100%;
             height:280px;
@@ -168,6 +182,54 @@
                     }
                 }
                 
+            }
+        }
+    }
+}
+.outdom {
+    width: 100%;
+    height: calc(100vh);
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: top;
+    background-attachment:fixed;
+    overflow-y: auto;
+    .SingerDetails-header {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        box-sizing: border-box;
+        padding-right: 20px;
+        color: black;
+        &-title {
+            color: white;
+            font-size: 0.8rem;
+        }
+        .sc-header{
+            width: 60px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            font-size: 0.7rem;
+            background-color: $colors-p;
+            border-radius: 20px;
+            padding: 4px 0;
+        }
+    }
+    .domFixed {
+        width: 100%;
+        margin-top: 260px;
+        z-index: 20;
+        .SingerDetails-section-article {
+            &-content {
+                width: 100%;
+                height: calc(100vh);
+                overflow-y: auto;
             }
         }
     }

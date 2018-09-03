@@ -116,7 +116,7 @@ class Search extends Component {
   }
   render() {
     return (
-            <div className="Search">
+            <div className="Search" style={{marginBottom: '80px'}}>
                 <form className="search-header" onSubmit={this.submit}>
                   <TopBar>
                     <div className="outinput">

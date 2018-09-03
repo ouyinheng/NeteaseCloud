@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { Link } from 'react-router-dom';
-import Footer from './components/footer'
+import Footer from './components/Footer'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-            <div style={{marginBottom:'80px'}}>
+            <div>
               { this.props.children }
             </div>
             <Link className="app-footer border-top" to="/app/musicdetails" >

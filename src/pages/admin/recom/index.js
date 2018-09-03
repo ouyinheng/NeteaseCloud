@@ -35,7 +35,7 @@ export default class Recom extends Component {
   }
   render() {
     return (
-        <div className="recom">
+        <div className="recom" style={{marginBottom: '80px'}}>
             <header className="recom-nav-group">
               <ListItem button onClick={(e)=>{this.setActive(e,0)}} style={{padding:'0'}}>
                 <Link to="/app/admin/recom/recommend" className={this.state.active===0?'recom-nav-item active':'recom-nav-item'}>推荐</Link>

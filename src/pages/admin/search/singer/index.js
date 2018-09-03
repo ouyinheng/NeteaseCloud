@@ -62,7 +62,7 @@ export default class Singer extends Component {
     }
     render(){
         return (
-                <div className="singer">
+                <div className="singer" style={{marginBottom: '80px'}}>
                     <header className="singer-header">
                         <TopBar>
                             <span className="singer-header-title">歌手分类</span>
